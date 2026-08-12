@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4">
+<title>TOSLA — MaryRuth Organics Account Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Expanded:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   THEME CSS — Editorial Light (assets/themes/editorial-light.css)
+   Copied verbatim from bluedusk/html-slides, minus the Inter/Space
+   Grotesk @import (replaced by the TOSLA font link above).
+   =========================================== */
+:root {
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', 'JetBrains Mono', monospace;
+
+  --bg: #f9f9ff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f2f3fc;
+  --surface-container: #ecedf6;
+
+  --text: #191c22;
+  --text-muted: #414752;
+  --text-dim: #747a87;
+
+  --accent-blue: #0060aa;
+  --accent-blue-container: #58a6ff;
+  --accent-green: #006e21;
+  --accent-orange: #e8590c;
+  --accent-red: #ba1a1a;
+  --accent-purple: #733fc4;
+  --accent-purple-container: #aa78ff;
+  --accent-yellow: #c48f00;
+
+  --border: rgba(192, 199, 212, 0.15);
+  --border-hover: rgba(192, 199, 212, 0.35);
+  --outline-variant: #c0c7d4;
+}
+
+html, body { background: var(--bg) !important; color: var(--text) !important; }
+.particle { background: rgba(0, 96, 170, 0.06) !important; }
+.branding { color: var(--text-dim) !important; }
+.branding-icon { border-color: var(--text-dim) !important; }
+.progress-bar { background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-container), var(--accent-purple)) !important; }
+.slide-counter { color: var(--text-dim) !important; }
+.nav-hints { color: var(--text-dim) !important; }
+.nav-hints kbd { background: rgba(0, 0, 0, 0.03) !important; border: 1px solid rgba(192, 199, 212, 0.25) !important; border-radius: 6px !important; color: var(--text-dim) !important; }
+.slide-nav-dot { background: rgba(192, 199, 212, 0.3) !important; }
+.slide-nav-dot.active { background: var(--accent-blue) !important; box-shadow: 0 0 12px rgba(0, 96, 170, 0.25) !important; }
+.slide-nav-dot:hover { background: rgba(0, 96, 170, 0.3) !important; }
+.glow-blob { opacity: 0.06 !important; }
+.glow-blue { background: var(--accent-blue-container) !important; }
+.glow-purple { background: var(--accent-purple-container) !important; }
+.glow-green { background: var(--accent-green) !important; }
+.rainbow-line { background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-container), var(--accent-purple), var(--accent-green)) !important; }
+.gradient-text { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+.rainbow-text { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green), var(--accent-orange)) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+.slide-tag { font-family: 'Space Grotesk', sans-serif !important; color: var(--accent-blue) !important; }
+.subtitle { color: var(--text-muted) !important; }
+.flip-front, .flip-back, .card-v2, .stat-card, .arch-box, .vs-card, .auth-front, .auth-back, .status-item, .chart-container, .table-wrap, .cta-box { background: var(--bg-card) !important; border: 1px solid var(--border) !important; border-radius: 12px !important; box-shadow: 0 2px 32px rgba(25, 28, 34, 0.04) !important; }
+.flip-card:hover .flip-front, .card-v2:hover, .stat-card:hover, .arch-box:hover, .vs-card:hover, .auth-flip:hover .auth-front, .chart-container:hover, .table-wrap:hover { border-color: var(--border-hover) !important; box-shadow: 0 8px 48px rgba(25, 28, 34, 0.08) !important; transform: translateY(-3px); }
+.flip-back { background: var(--bg-card-hover) !important; }
+.flip-back .flip-detail { color: var(--text-muted) !important; }
+.flip-back .flip-detail strong { color: var(--text) !important; }
+.flip-front .flip-hint { color: var(--text-dim) !important; }
+.flip-front.border-orange { border-color: rgba(232, 89, 12, 0.2) !important; }
+.flip-front.border-yellow { border-color: rgba(196, 143, 0, 0.2) !important; }
+.flip-front.border-red { border-color: rgba(186, 26, 26, 0.2) !important; }
+.flip-card:hover .flip-front.border-orange { border-color: rgba(232, 89, 12, 0.4) !important; box-shadow: 0 8px 48px rgba(232, 89, 12, 0.06) !important; }
+.flip-card:hover .flip-front.border-yellow { border-color: rgba(196, 143, 0, 0.4) !important; box-shadow: 0 8px 48px rgba(196, 143, 0, 0.06) !important; }
+.flip-card:hover .flip-front.border-red { border-color: rgba(186, 26, 26, 0.4) !important; box-shadow: 0 8px 48px rgba(186, 26, 26, 0.06) !important; }
+.card-v2::before { display: none !important; }
+.card-v2:hover { background: var(--bg-card-hover) !important; }
+.card-v2.glow-orange:hover { border-color: rgba(232, 89, 12, 0.3) !important; box-shadow: 0 8px 48px rgba(232, 89, 12, 0.06) !important; }
+.card-v2.glow-blue:hover { border-color: rgba(0, 96, 170, 0.3) !important; box-shadow: 0 8px 48px rgba(0, 96, 170, 0.06) !important; }
+.card-v2.glow-green:hover { border-color: rgba(0, 110, 33, 0.3) !important; box-shadow: 0 8px 48px rgba(0, 110, 33, 0.06) !important; }
+.card-v2.glow-purple:hover { border-color: rgba(115, 63, 196, 0.3) !important; box-shadow: 0 8px 48px rgba(115, 63, 196, 0.06) !important; }
+.card-expand-inner { border-top: 1px solid var(--border) !important; color: var(--text-dim) !important; }
+.card-expand-inner code { background: var(--bg-card-hover) !important; color: var(--accent-blue) !important; }
+.card-v2 .expand-hint { color: var(--text-dim) !important; }
+.arch-box.box-blue { border-color: rgba(0, 96, 170, 0.2) !important; }
+.arch-box.box-yellow { border-color: rgba(196, 143, 0, 0.2) !important; }
+.arch-box.box-green { border-color: rgba(0, 110, 33, 0.2) !important; }
+.arch-box:hover.box-blue { border-color: rgba(0, 96, 170, 0.4) !important; box-shadow: 0 8px 48px rgba(0, 96, 170, 0.06) !important; }
+.arch-box:hover.box-yellow { border-color: rgba(196, 143, 0, 0.4) !important; box-shadow: 0 8px 48px rgba(196, 143, 0, 0.06) !important; }
+.arch-box:hover.box-green { border-color: rgba(0, 110, 33, 0.4) !important; box-shadow: 0 8px 48px rgba(0, 110, 33, 0.06) !important; }
+.arch-detail { background: var(--bg-card-hover) !important; color: var(--text-dim) !important; }
+.arch-arrow { color: var(--text-dim) !important; }
+.arrow-line { background: var(--text-dim) !important; }
+.arrow-line::after { border-left-color: var(--text-dim) !important; }
+.stat-number.blue { color: var(--accent-blue) !important; }
+.stat-number.green { color: var(--accent-green) !important; }
+.stat-number.orange { color: var(--accent-orange) !important; }
+.vs-card.card-left { border-color: rgba(115, 63, 196, 0.2) !important; }
+.vs-card.card-right { border-color: rgba(0, 96, 170, 0.2) !important; }
+.vs-card.card-left:hover { border-color: rgba(115, 63, 196, 0.4) !important; box-shadow: 0 8px 48px rgba(115, 63, 196, 0.06) !important; }
+.vs-card.card-right:hover { border-color: rgba(0, 96, 170, 0.4) !important; box-shadow: 0 8px 48px rgba(0, 96, 170, 0.06) !important; }
+.vs-badge { background: var(--bg-card-hover) !important; color: var(--text-dim) !important; }
+.vs-plus { background: linear-gradient(135deg, rgba(115, 63, 196, 0.1), rgba(0, 96, 170, 0.1)) !important; border: 1px solid var(--border) !important; color: var(--text-dim) !important; animation: pulseGlow 3s ease infinite !important; }
+.auth-front.bad { border-color: rgba(186, 26, 26, 0.2) !important; }
+.auth-front.good { border-color: rgba(0, 110, 33, 0.2) !important; }
+.auth-flip:hover .auth-front.bad { border-color: rgba(186, 26, 26, 0.4) !important; box-shadow: 0 8px 48px rgba(186, 26, 26, 0.06) !important; }
+.auth-flip:hover .auth-front.good { border-color: rgba(0, 110, 33, 0.4) !important; box-shadow: 0 8px 48px rgba(0, 110, 33, 0.06) !important; }
+.auth-back { background: var(--bg-card-hover) !important; }
+.auth-desc { color: var(--text-dim) !important; }
+.auth-vs { color: var(--text-dim) !important; }
+.auth-front .flip-hint { color: var(--text-dim) !important; }
+.status-item:hover { background: var(--bg-card-hover) !important; border-color: var(--border-hover) !important; }
+.status-dot.green { background: var(--accent-green) !important; box-shadow: 0 0 8px rgba(0, 110, 33, 0.3) !important; }
+.status-dot.yellow { background: var(--accent-yellow) !important; box-shadow: 0 0 8px rgba(196, 143, 0, 0.3) !important; }
+.status-dot.orange { background: var(--accent-orange) !important; box-shadow: 0 0 8px rgba(232, 89, 12, 0.3) !important; }
+.status-dot.red { background: var(--accent-red) !important; box-shadow: 0 0 8px rgba(186, 26, 26, 0.3) !important; }
+.cta-box { background: linear-gradient(135deg, rgba(0, 96, 170, 0.04), rgba(115, 63, 196, 0.04)) !important; border: 1px solid rgba(0, 96, 170, 0.12) !important; }
+.cta-box:hover { border-color: rgba(0, 96, 170, 0.25) !important; box-shadow: 0 8px 48px rgba(0, 96, 170, 0.06) !important; }
+.table-wrap thead th { background: var(--bg-card-hover) !important; color: var(--text-muted) !important; border-bottom: 1px solid var(--border) !important; }
+.table-wrap tbody td { color: var(--text) !important; border-bottom: 1px solid var(--border) !important; }
+.table-wrap tbody tr:hover { background: var(--bg-card-hover) !important; }
+.cb-card { background: var(--bg-card) !important; border: 1px solid var(--border) !important; border-radius: 12px !important; box-shadow: 0 2px 32px rgba(25, 28, 34, 0.04) !important; }
+.cb-card:hover { border-color: var(--border-hover) !important; box-shadow: 0 8px 48px rgba(25, 28, 34, 0.08) !important; transform: translateY(-3px); }
+.cb-card.problem { border-color: rgba(186, 26, 26, 0.15) !important; background: rgba(186, 26, 26, 0.02) !important; }
+.cb-card.problem:hover { border-color: rgba(186, 26, 26, 0.3) !important; box-shadow: 0 8px 48px rgba(186, 26, 26, 0.06) !important; }
+.cb-card.fix { border-color: rgba(0, 96, 170, 0.15) !important; }
+.cb-card.fix:hover { border-color: rgba(0, 96, 170, 0.3) !important; box-shadow: 0 8px 48px rgba(0, 96, 170, 0.06) !important; }
+.cb-card-label { font-family: 'Space Grotesk', sans-serif !important; }
+.cb-card-label.problem-label { color: var(--accent-red) !important; }
+.cb-card-label.fix-label { color: var(--accent-blue) !important; }
+.cb-card-text { color: var(--text-muted) !important; }
+.cb-keyquote { border-left-color: var(--accent-blue) !important; }
+.cb-body { color: var(--text-muted) !important; }
+.cb-number { font-family: 'Space Grotesk', sans-serif !important; }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(0, 96, 170, 0); } 50% { box-shadow: 0 0 20px rgba(0, 96, 170, 0.1); } }
+.deck::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 80% 10%, rgba(115, 63, 196, 0.03) 0%, transparent 40%), radial-gradient(ellipse at 10% 90%, rgba(0, 96, 170, 0.025) 0%, transparent 40%); pointer-events: none; z-index: 0; }
+.deck::after { content: ''; position: fixed; top: 10%; bottom: 10%; left: 61.8%; width: 1px; background: linear-gradient(to bottom, transparent, rgba(192, 199, 212, 0.12), transparent); pointer-events: none; z-index: 0; }
+.glow-blob { animation: driftOrb 40s ease-in-out infinite !important; }
+.glow-purple { animation-duration: 35s !important; animation-direction: reverse !important; }
+.slide.active .anim-1 { animation: fadeInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both !important; }
+.slide.active .anim-2 { animation: fadeInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both !important; }
+.slide.active .anim-3 { animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both !important; }
+.slide.active .anim-4 { animation: fadeInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both !important; }
+.slide.active .anim-5 { animation: fadeInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both !important; }
+.slide.active .bounce-1 { animation: scaleReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both !important; }
+.slide.active .bounce-2 { animation: scaleReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both !important; }
+.slide.active .bounce-3 { animation: scaleReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both !important; }
+.slide.active .bounce-4 { animation: scaleReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both !important; }
+.slide.active .pop-1 { animation: countPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both !important; }
+.slide.active .pop-2 { animation: countPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both !important; }
+.slide.active .pop-3 { animation: countPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both !important; }
+
+/* ===========================================
+   SHARED COMPONENT CSS (assets/components.css) — copied verbatim
+   =========================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: var(--font-body, 'Inter, -apple-system, sans-serif'); background: var(--bg); color: var(--text); overflow: hidden; -webkit-font-smoothing: antialiased; }
+.deck { position: relative; width: 100vw; height: 100vh; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 36px 48px; opacity: 0; pointer-events: none; transition: opacity 0.45s cubic-bezier(.4,0,.2,1); overflow: hidden; }
+.slide.active { opacity: 1; pointer-events: auto; }
+.particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.particle { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(255,255,255,0.12); animation: floatP linear infinite; }
+@keyframes floatP { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { transform: translateY(-10vh) translateX(25px); opacity: 0; } }
+.branding { position: fixed; top: 24px; right: 32px; z-index: 100; font-size: 13px; font-weight: 600; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+.branding-icon { width: 20px; height: 20px; border: 2px solid var(--text-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+.progress-bar { position: fixed; bottom: 0; left: 0; height: 3px; z-index: 100; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green)); transition: width 0.4s ease; }
+.slide-counter { position: fixed; bottom: 20px; right: 32px; font-size: 13px; font-weight: 500; color: var(--text-dim); z-index: 100; font-variant-numeric: tabular-nums; }
+.nav-hints { position: fixed; bottom: 20px; left: 32px; font-size: 12px; color: var(--text-dim); z-index: 100; }
+.nav-hints kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 22px; padding: 0 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 4px; font-size: 11px; margin: 0 2px; }
+.slide-nav { position: fixed; right: 16px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 6px; }
+.slide-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s ease; }
+.slide-nav-dot.active { background: var(--accent-blue); transform: scale(1.6); box-shadow: 0 0 8px var(--accent-blue); }
+.slide-nav-dot:hover { background: rgba(255,255,255,0.4); transform: scale(1.3); }
+.slide-tag { font-size: clamp(13px, 1.2vw, 15px); font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 16px; }
+h1 { font-size: clamp(36px,5vw,64px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; text-align: center; }
+h2 { font-size: clamp(28px,3.5vw,48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 12px; text-align: center; }
+.subtitle { font-size: clamp(17px, 1.8vw, 24px); color: var(--text-muted); font-weight: 400; line-height: 1.5; text-align: center; max-width: 800px; }
+.highlight-orange { color: var(--accent-orange); }
+.highlight-blue { color: var(--accent-blue); }
+.highlight-green { color: var(--accent-green); }
+.highlight-purple { color: var(--accent-purple); }
+.highlight-red { color: var(--accent-red); }
+.highlight-yellow { color: var(--accent-yellow); }
+.gradient-text { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-text { background: linear-gradient(90deg, #58a6ff, #a371f7, #3fb950, #d29922, #f0883e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-line { width: 200px; height: 2px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green), var(--accent-yellow), var(--accent-orange)); border-radius: 2px; margin: 20px 0; }
+.mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; }
+.glow-blob { position: absolute; width: 400px; height: 400px; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; }
+.glow-blue { background: var(--accent-blue); } .glow-purple { background: var(--accent-purple); } .glow-green { background: var(--accent-green); }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+@keyframes bounceIn { 0% { opacity:0; transform: scale(0.3) translateY(40px); } 50% { opacity:1; transform: scale(1.05) translateY(-8px); } 70% { transform: scale(0.95) translateY(4px); } 100% { opacity:1; transform: scale(1) translateY(0); } }
+@keyframes bounceInSoft { 0% { opacity:0; transform: translateY(30px); } 60% { opacity:1; transform: translateY(-6px); } 80% { transform: translateY(3px); } 100% { opacity:1; transform: translateY(0); } }
+@keyframes scaleReveal { 0% { opacity:0; transform: scale(0.85); } 100% { opacity:1; transform: scale(1); } }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideInRight { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes countPop { 0% { opacity:0; transform: scale(0.5); } 60% { transform: scale(1.1); } 100% { opacity:1; transform: scale(1); } }
+@keyframes floatBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes driftOrb { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(15px, -20px); } 50% { transform: translate(-10px, -35px); } 75% { transform: translate(-20px, -15px); } }
+.slide.active .anim-1 { animation: fadeInUp 0.5s ease 0.1s both; }
+.slide.active .anim-2 { animation: fadeInUp 0.5s ease 0.25s both; }
+.slide.active .anim-3 { animation: bounceInSoft 0.6s ease 0.35s both; }
+.slide.active .anim-4 { animation: fadeInUp 0.5s ease 0.55s both; }
+.slide.active .anim-5 { animation: fadeInUp 0.5s ease 0.7s both; }
+.slide.active .bounce-1 { animation: bounceIn 0.7s ease 0.2s both; }
+.slide.active .bounce-2 { animation: bounceIn 0.7s ease 0.35s both; }
+.slide.active .bounce-3 { animation: bounceIn 0.7s ease 0.5s both; }
+.slide.active .bounce-4 { animation: bounceIn 0.7s ease 0.65s both; }
+.slide.active .slide-l { animation: slideInLeft 0.6s ease 0.3s both; }
+.slide.active .slide-r { animation: slideInRight 0.6s ease 0.3s both; }
+.slide.active .pop-1 { animation: countPop 0.6s ease 0.3s both; }
+.slide.active .pop-2 { animation: countPop 0.6s ease 0.45s both; }
+.slide.active .pop-3 { animation: countPop 0.6s ease 0.6s both; }
+.flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 920px; margin-top: 24px; }
+.flip-bounce-wrap { perspective: 1200px; }
+.flip-card { height: 190px; cursor: pointer; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+.flip-card.flipped { transform: rotateY(180deg); }
+.flip-card:hover .flip-front { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.flip-front, .flip-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; border: 1.5px solid var(--border); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.flip-front { background: var(--bg-card); justify-content: center; }
+.flip-front .flip-hint { position: absolute; bottom: 10px; right: 14px; font-size: 11px; color: var(--text-dim); opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; }
+.flip-back { background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover)); transform: rotateY(180deg); justify-content: center; align-items: center; text-align: center; }
+.flip-back .flip-detail { font-size: clamp(14px, 1.3vw, 16px); color: var(--text-muted); line-height: 1.6; }
+.flip-back .flip-detail strong { color: var(--text); }
+.flip-back .flip-icon-big { font-size: 36px; margin-bottom: 12px; }
+.flip-front.border-orange { border-color: rgba(240,136,62,0.35); }
+.flip-front.border-yellow { border-color: rgba(210,153,34,0.35); }
+.flip-front.border-red { border-color: rgba(248,81,73,0.35); }
+.flip-title { font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; margin-bottom: 4px; }
+.flip-subtitle { font-size: clamp(14px, 1.2vw, 16px); font-weight: 600; }
+.flip-icon { font-size: 28px; margin-bottom: 10px; }
+.card-v2 { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; position: relative; cursor: pointer; transition: all 0.35s cubic-bezier(.4,0,.2,1); overflow: hidden; }
+.card-v2:hover { transform: translateY(-4px) scale(1.02); border-color: var(--border-hover); background: var(--bg-card-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06); }
+.card-v2 .card-icon { font-size: 28px; margin-bottom: 12px; transition: transform 0.3s ease; }
+.card-v2:hover .card-icon { transform: scale(1.15); }
+.card-v2 .card-title { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; margin-bottom: 3px; }
+.card-v2 .card-desc { font-size: clamp(14px, 1.2vw, 16px); color: var(--text-muted); line-height: 1.4; }
+.card-expand { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s ease, margin-top 0.3s ease; margin-top: 0; }
+.card-v2.expanded .card-expand { max-height: 140px; opacity: 1; margin-top: 12px; }
+.card-expand-inner { padding-top: 12px; border-top: 1px solid var(--border); font-size: clamp(12px, 1.1vw, 14px); color: var(--text-dim); line-height: 1.5; }
+.card-v2 .expand-hint { position: absolute; bottom: 8px; right: 12px; font-size: 11px; color: var(--text-dim); opacity: 0.4; transition: opacity 0.3s ease; }
+.card-v2:hover .expand-hint { opacity: 0.8; }
+.card-v2.expanded .expand-hint { transform: rotate(180deg); }
+.arch-flow { display: flex; align-items: center; gap: 16px; width: 100%; max-width: 1200px; margin-top: 28px; }
+.arch-box { flex: 1; min-width: 0; background: var(--bg-card); border: 1.5px solid var(--border); border-radius: 14px; padding: 20px 12px; text-align: center; transition: all 0.35s cubic-bezier(.4,0,.2,1); cursor: pointer; }
+.arch-box:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); border-color: var(--border-hover); }
+.arch-box.box-blue { border-color: rgba(88,166,255,0.4); }
+.arch-icon { font-size: 30px; margin-bottom: 10px; transition: transform 0.3s ease; }
+.arch-box:hover .arch-icon { transform: scale(1.15); animation: floatBob 1.5s ease infinite; }
+.arch-label { font-size: clamp(14px, 1.2vw, 17px); font-weight: 800; }
+.arch-label.text-blue { color: var(--accent-blue); }
+.arch-role { font-size: clamp(12px, 1vw, 14px); color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+.arch-detail { font-size: clamp(11px, 0.9vw, 13px); color: var(--text-dim); margin-top: 8px; font-family: var(--font-mono, 'JetBrains Mono, monospace'); background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 6px; }
+.arch-arrow { font-size: 14px; color: var(--text-dim); display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; min-width: 30px; }
+.arrow-line { width: 24px; height: 2px; background: var(--text-dim); position: relative; }
+.arrow-line::after { content: ''; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 6px solid var(--text-dim); }
+.stats-row { display: flex; gap: 24px; margin-top: 32px; width: 100%; max-width: 1000px; }
+.stat-card { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 22px; transition: all 0.35s ease; text-align: left; }
+.stat-card:hover { transform: translateY(-6px) scale(1.02); border-color: var(--border-hover); box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
+.stat-number { font-size: clamp(38px,5vw,58px); font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.stat-number.blue { color: var(--accent-blue); } .stat-number.green { color: var(--accent-green); } .stat-number.orange { color: var(--accent-orange); }
+.stat-label { font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; margin-bottom: 4px; }
+.stat-desc { font-size: clamp(12px, 1.1vw, 14px); color: var(--text-muted); }
+.status-timeline { width: 100%; max-width: 860px; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.status-item { display: flex; align-items: center; gap: 16px; padding: 13px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.3s ease; cursor: default; }
+.status-item:hover { transform: translateX(8px); border-color: var(--border-hover); background: var(--bg-card-hover); }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.status-dot.green { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+.status-dot.yellow { background: var(--accent-yellow); box-shadow: 0 0 8px var(--accent-yellow); }
+.status-dot.orange { background: var(--accent-orange); box-shadow: 0 0 8px var(--accent-orange); }
+.status-dot.red { background: var(--accent-red); box-shadow: 0 0 8px var(--accent-red); }
+.status-text { font-size: clamp(14px, 1.2vw, 17px); font-weight: 500; }
+.status-text strong { font-weight: 700; color: var(--text); }
+.slide.active .stag-1 { animation: bounceInSoft 0.5s ease 0.15s both; }
+.slide.active .stag-2 { animation: bounceInSoft 0.5s ease 0.25s both; }
+.slide.active .stag-3 { animation: bounceInSoft 0.5s ease 0.35s both; }
+.slide.active .stag-4 { animation: bounceInSoft 0.5s ease 0.45s both; }
+.slide.active .stag-5 { animation: bounceInSoft 0.5s ease 0.55s both; }
+.cta-box { margin-top: 28px; padding: 26px 36px; border-radius: 16px; background: linear-gradient(135deg, rgba(88,166,255,0.06), rgba(163,113,247,0.06)); border: 1px solid rgba(88,166,255,0.15); text-align: center; max-width: 720px; transition: all 0.3s ease; }
+.cta-box:hover { border-color: rgba(88,166,255,0.3); box-shadow: 0 8px 40px rgba(88,166,255,0.06); }
+.table-wrap { width: 100%; max-width: 980px; margin-top: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.35s ease; }
+.table-wrap:hover { border-color: var(--border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: clamp(12px, 1.2vw, 15px); }
+.table-wrap thead th { padding: 12px 18px; text-align: left; font-weight: 600; font-size: clamp(11px, 1vw, 13px); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); }
+.table-wrap tbody td { padding: 11px 18px; border-bottom: 1px solid var(--border); color: var(--text); }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr { transition: background 0.2s ease; }
+.table-wrap tbody tr:hover { background: var(--bg-card-hover); }
+.table-wrap .cell-highlight { font-weight: 600; }
+.table-wrap .cell-muted { color: var(--text-muted); }
+.image-frame { margin-top: 20px; display: flex; flex-direction: column; align-items: center; max-width: 920px; width: 100%; }
+.image-frame .slide-image { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.image-frame.image-logo .slide-image { max-height: min(14vh, 90px); }
+.cb-wrap { width: 100%; max-width: 860px; text-align: left; display: flex; flex-direction: column; gap: clamp(8px, 1.5vh, 16px); }
+.cb-number { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: clamp(13px, 1.2vw, 16px); font-weight: 700; letter-spacing: 0.1em; color: var(--text-dim); opacity: 0.5; }
+.cb-heading { font-size: clamp(26px, 3.2vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; color: var(--text); }
+.cb-body { font-size: clamp(14px, 1.4vw, 19px); line-height: 1.6; color: var(--text-muted); max-width: 720px; }
+.cb-body .cb-accent { font-weight: 600; color: var(--text); }
+.cb-pair { display: flex; gap: clamp(10px, 1.5vw, 20px); width: 100%; margin-top: clamp(4px, 1vh, 8px); }
+.cb-card { flex: 1; padding: clamp(14px, 2vw, 22px); background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; transition: all 0.3s ease; }
+.cb-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.cb-card.problem { background: rgba(248, 81, 73, 0.04); border-color: rgba(248, 81, 73, 0.2); }
+.cb-card.fix { border-color: rgba(88, 166, 255, 0.25); }
+.cb-card-label { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: clamp(10px, 0.9vw, 12px); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: clamp(6px, 1vh, 10px); display: flex; align-items: center; gap: 0.5em; }
+.cb-card-label.problem-label { color: var(--accent-red); }
+.cb-card-label.fix-label { color: var(--accent-blue); }
+.cb-card-text { font-size: clamp(12.5px, 1.15vw, 15px); line-height: 1.55; color: var(--text-muted); }
+.cb-card-text ul { padding-left: 18px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+.cb-keyquote { font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; line-height: 1.25; color: var(--text); border-left: 3px solid var(--accent-blue); padding-left: clamp(12px, 2vw, 24px); }
+.cb-detail { font-size: clamp(13px, 1.2vw, 17px); line-height: 1.6; color: var(--text-muted); max-width: 680px; margin-top: clamp(6px, 1vh, 12px); }
+
+/* ===========================================
+   TOSLA BRAND OVERRIDES
+   Redefines the theme's CSS variables + a few
+   structural rules to match TOSLA's navy/white
+   identity, on top of the verbatim theme above.
+   =========================================== */
+:root {
+  --font-body: 'Archivo', -apple-system, sans-serif;
+  --font-mono: 'Archivo Expanded', 'Archivo', sans-serif;
+
+  --bg: #F7F8FB;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F1F2F8;
+
+  --text: #12153B;
+  --text-muted: rgba(18,21,59,0.64);
+  --text-dim: rgba(18,21,59,0.42);
+
+  --accent-blue: #A6663C;     /* brown — primary accent (tags, links, labels) */
+  --accent-blue-container: #B17645;
+  --accent-green: #3E8C77;    /* deepened mint — positive / done */
+  --accent-orange: #C9915A;   /* deepened peach — attention / warning */
+  --accent-red: #B4432E;      /* muted brick red — danger / risk */
+  --accent-purple: #12153B;   /* navy — secondary accent */
+  --accent-purple-container: #1C2058;
+  --accent-yellow: #A97E3D;   /* caution */
+
+  --border: rgba(18,21,59,0.10);
+  --border-hover: rgba(18,21,59,0.24);
+}
+
+h1, h2, .cb-heading, .arch-label, .flip-title, .stat-label, .vs-name {
+  font-family: 'Bricolage Grotesque', var(--font-body);
+}
+.slide-tag, .cb-card-label, .cb-number { font-family: var(--font-mono) !important; letter-spacing: 0.16em !important; }
+
+.deck::before {
+  background:
+    radial-gradient(ellipse at 82% 8%, rgba(158,217,202,0.14) 0%, transparent 42%),
+    radial-gradient(ellipse at 8% 92%, rgba(241,219,201,0.16) 0%, transparent 42%) !important;
+}
+.deck::after { display: none !important; }
+.branding, .branding-icon, .slide-counter, .nav-hints { color: var(--text-dim) !important; }
+.branding-icon { border-color: var(--text) !important; background: var(--text); color: #fff !important; }
+
+.tosla-confidential {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: clamp(11px, 1vw, 13px); font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 100px;
+  background: var(--text); color: #fff;
+  margin-bottom: 18px;
+}
+.tosla-confidential .dot { width: 6px; height: 6px; border-radius: 50%; background: #9ED9CA; }
+
+.pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; justify-content: center; }
+.pill { font-family: var(--font-mono); font-size: clamp(11px, 1vw, 13px); font-weight: 700; letter-spacing: 0.05em; padding: 7px 15px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); }
+
+.section-kicker { display: flex; align-items: baseline; gap: 14px; justify-content: center; }
+.section-kicker .num { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(15px, 1.6vw, 20px); color: var(--accent-blue); }
+
+.agenda-list { width: 100%; max-width: 820px; display: flex; flex-direction: column; margin-top: 8px; }
+.agenda-row { display: flex; align-items: center; gap: 24px; padding: 14px 4px; border-bottom: 1px solid var(--border); }
+.agenda-row:first-child { border-top: 1px solid var(--border); }
+.agenda-row .n { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(16px,1.8vw,22px); color: var(--accent-orange); width: 40px; }
+.agenda-row .t { font-size: clamp(15px,1.6vw,20px); font-weight: 700; flex: 1; }
+.agenda-row .s { font-family: var(--font-mono); font-size: clamp(10px,0.9vw,12px); color: var(--text-dim); letter-spacing: 0.04em; }
+
+.contact-row { display: flex; gap: 18px; width: 100%; max-width: 980px; margin-top: 24px; }
+.contact-card { flex: 1; }
+.contact-card .card-title { color: var(--text); }
+.contact-card .role { font-family: var(--font-mono); font-size: clamp(10px,0.95vw,12px); color: var(--accent-blue); letter-spacing: 0.08em; text-transform: uppercase; margin: 4px 0 8px; }
+
+@media (max-height: 700px) {
+  .stat-card, .cb-card, .card-v2 { padding: 16px; }
+  .flip-card { height: 160px; }
+}
+@media (max-height: 600px) {
+  h1 { font-size: clamp(28px, 4vw, 46px); }
+  h2 { font-size: clamp(22px, 2.8vw, 34px); }
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+<div class="branding"><div class="branding-icon">T</div> TOSLA · Account Strategy</div>
+<div class="slide-nav" id="slideNav"></div>
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+<div class="nav-hints"><span><kbd>&larr;</kbd><kbd>&rarr;</kbd> navigate</span></div>
+
+<div class="deck" id="deck">
+
+<!-- 0. TITLE -->
+<div class="slide active" data-slide="0">
+  <div class="image-frame image-logo anim-1">
+    <img src="assets/tosla-logo-navy.png" alt="TOSLA" class="slide-image">
+  </div>
+  <div class="anim-2"><span class="tosla-confidential"><span class="dot"></span>Confidential — Internal Strategy Deck</span></div>
+  <h1 class="anim-3">MaryRuth Organics</h1>
+  <p class="subtitle anim-4">Contract Manufacturing — Account Strategy &amp; Opportunity Assessment</p>
+  <p class="subtitle anim-5" style="font-size:clamp(12px,1.1vw,14px);margin-top:10px;">Prepared Aug 11, 2026 &nbsp;·&nbsp; Status: Cold Prospect &nbsp;·&nbsp; TOSLA Business Development</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"MaryRuth Organics — Account Strategy","script":"This is our account strategy for MaryRuth Organics — a cold prospect we want to move toward a qualified manufacturing pilot.","notes":["Internal strategy deck, confidential","Contract manufacturing opportunity assessment","Current status: cold prospect"]}
+  </script>
+</div>
+
+<!-- 1. AGENDA -->
+<div class="slide" data-slide="1">
+  <p class="slide-tag anim-1">Where We're Headed</p>
+  <h2 class="anim-2">Account Strategy at a Glance</h2>
+  <div class="agenda-list anim-3">
+    <div class="agenda-row"><span class="n">01</span><span class="t">Who MaryRuth Organics is</span><span class="s">BUSINESS OVERVIEW</span></div>
+    <div class="agenda-row"><span class="n">02</span><span class="t">Where they're growing — and straining</span><span class="s">INITIATIVES &amp; RELATIONSHIPS</span></div>
+    <div class="agenda-row"><span class="n">03</span><span class="t">The whitespace TOSLA can own</span><span class="s">LIQUID &amp; LIPOSOMAL MFG</span></div>
+    <div class="agenda-row"><span class="n">04</span><span class="t">Competitive &amp; buying landscape</span><span class="s">WHO WE'RE UP AGAINST</span></div>
+    <div class="agenda-row"><span class="n">05</span><span class="t">Path to a qualified pilot</span><span class="s">OFFER, RISKS, ACTION PLAN</span></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Account Strategy at a Glance","script":"We'll cover five things: who MaryRuth Organics is, where they're growing and straining, the manufacturing whitespace we can own, the competitive landscape, and our path to a qualified pilot.","notes":["Business overview","Initiatives and relationship landscape","Liquid and liposomal manufacturing whitespace","Competitive and buying landscape","Path to a qualified pilot"]}
+  </script>
+</div>
+
+<!-- 2. SECTION 01: BUSINESS OVERVIEW -->
+<div class="slide" data-slide="2">
+  <div class="section-kicker anim-1"><span class="num">01</span><p class="slide-tag" style="margin:0;">Business Overview</p></div>
+  <h2 class="anim-2">MaryRuth Organics, Fast Facts</h2>
+  <div class="stats-row anim-3">
+    <div class="stat-card bounce-1"><div class="stat-number blue">2014</div><div class="stat-label">Founded</div><div class="stat-desc">By MaryRuth Ghiyam, Los Angeles</div></div>
+    <div class="stat-card bounce-2"><div class="stat-number green">~$300M</div><div class="stat-label">Est. Revenue</div><div class="stat-desc">2023 projection; treat as directional</div></div>
+    <div class="stat-card bounce-3"><div class="stat-number orange">150–200</div><div class="stat-label">Employees</div><div class="stat-desc">Estimated range across data brokers</div></div>
+  </div>
+  <div class="pill-row anim-4">
+    <span class="pill">B Corp</span><span class="pill">Women-Owned</span><span class="pill">Clean Label Project</span><span class="pill">USDA Organic</span>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Business Overview — Fast Facts","script":"MaryRuth Organics was founded in 2014 by MaryRuth Ghiyam in Los Angeles, and is now estimated around $300 million in revenue with 150 to 200 employees.","notes":["Founded 2014 in Los Angeles","Estimated ~$300M revenue, 150–200 employees","B Corp, Women-Owned, Clean Label Project, USDA Organic"]}
+  </script>
+</div>
+
+<!-- 3. VISION STATEMENT -->
+<div class="slide" data-slide="3">
+  <div class="cb-wrap anim-3" style="text-align:center;align-items:center;">
+    <p class="slide-tag anim-1" style="align-self:center;">Company Vision &amp; Mission</p>
+    <blockquote class="cb-keyquote anim-2" style="text-align:left;">&ldquo;Move Forward Every Day&rdquo; — built on founder-led authenticity, not a clinical supplement pitch.</blockquote>
+    <p class="cb-detail anim-3">MaryRuth Ghiyam built the brand from <span class="cb-accent" style="color:var(--text);font-weight:600;">$700K in debt to $100M+</span> without early outside investment. MRO positions itself as a family-first, wellness-education brand — certifications reinforce a values-driven identity that a manufacturing pitch should respect, not just spec around.</p>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Company Vision & Mission","script":"MaryRuth Ghiyam built this brand from $700K in debt to over $100 million without early outside investment — it's a founder-led, family-first wellness brand, not a clinical supplement company.","notes":["Founder-led authenticity story","$700K debt to $100M+ without early outside capital","Family-first, wellness-education positioning"]}
+  </script>
+</div>
+
+<!-- 4. TARGET MARKET -->
+<div class="slide" data-slide="4">
+  <p class="slide-tag anim-1">Company Target Market</p>
+  <h2 class="anim-2">Who MRO Sells To</h2>
+  <div class="cb-wrap anim-3" style="max-width:820px;">
+    <div class="cb-card-text" style="font-size:clamp(14px,1.5vw,19px);color:var(--text-muted);">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;padding:0;">
+        <li>&#9679;&nbsp; Health-conscious parents seeking clean-label supplements for themselves and their kids</li>
+        <li>&#9679;&nbsp; Full life-stage portfolio — infants through adults 40+</li>
+        <li>&#9679;&nbsp; Vegan, non-GMO, organic, gluten-free; <strong style="color:var(--text);">palatability</strong> beats pills as the purchase driver</li>
+        <li>&#9679;&nbsp; Primarily U.S. DTC + mass retail, with early international reach via iHerb</li>
+      </ul>
+    </div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Target Market","script":"Their core buyer is health-conscious parents who want clean-label supplements across every life stage, from infants to adults over 40 — and taste matters more to them than pill format.","notes":["Health-conscious parents, full life-stage SKU portfolio","Vegan, non-GMO, organic, gluten-free priorities","Palatability beats pills as purchase driver","Primarily U.S., early international via iHerb"]}
+  </script>
+</div>
+
+<!-- 5. SECTION 02: KEY INITIATIVES -->
+<div class="slide" data-slide="5">
+  <div class="section-kicker anim-1"><span class="num">02</span><p class="slide-tag" style="margin:0;">Key Business Initiatives</p></div>
+  <h2 class="anim-2">Short-, Medium-, and Long-Term Priorities</h2>
+  <div class="status-timeline anim-3">
+    <div class="status-item stag-1"><div class="status-dot green"></div><div class="status-text"><strong>Short-term (2026)</strong> — Deepen big-box retail penetration. Confirmed exhibitor at NACDS Total Store Expo, Aug 15–17, Boston.</div></div>
+    <div class="status-item stag-2"><div class="status-dot yellow"></div><div class="status-text"><strong>Medium-term</strong> — Professionalize finance/ops post-recapitalization. Expand beyond 300+ SKUs. Grow TikTok Shop as a full-funnel engine.</div></div>
+    <div class="status-item stag-3"><div class="status-dot orange"></div><div class="status-text"><strong>Long-term</strong> — Extend &ldquo;liquids first&rdquo; into nootropics, postbiotics, prenatal/postnatal. Defend vs. Garden of Life, Ritual, OLLY.</div></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Key Business Initiatives","script":"Short-term, they're pushing retail penetration around the NACDS Expo. Medium-term, they're professionalizing operations and growing TikTok Shop. Long-term, they want to extend their liquids-first platform into new categories.","notes":["Short-term: retail push, NACDS Expo Aug 2026","Medium-term: post-recap ops, 300+ SKUs, TikTok Shop","Long-term: liquids-first expansion, defend category share"]}
+  </script>
+</div>
+
+<!-- 6. KEY PROJECTS & KPIs -->
+<div class="slide" data-slide="6">
+  <p class="slide-tag anim-1">Signals of Growth &amp; Strain</p>
+  <h2 class="anim-2">Key Projects &amp; Tracked KPIs</h2>
+  <div class="cb-pair anim-3" style="max-width:1000px;">
+    <div class="cb-card fix">
+      <div class="cb-card-label fix-label">Key Projects</div>
+      <div class="cb-card-text"><ul>
+        <li>Gut Health+ Capsules (2023) — postbiotic launch, functional-science push</li>
+        <li>Pipe17 rollout — unifying DTC, Amazon, Walmart, TikTok Shop fulfillment</li>
+        <li>AI/agentic workflows for change-order review &amp; compliance training</li>
+      </ul></div>
+    </div>
+    <div class="cb-card">
+      <div class="cb-card-label" style="color:var(--accent-green);">Tracked KPIs</div>
+      <div class="cb-card-text"><ul>
+        <li>Total Return on Marketing Spend (T-ROMs), five channels</li>
+        <li>SKU velocity / new-product launch speed</li>
+        <li>Retail door count &amp; omnichannel revenue mix</li>
+        <li>Subscription retention (Wellness Rewards)</li>
+      </ul></div>
+    </div>
+  </div>
+  <p class="subtitle anim-4 mt-16" style="font-size:clamp(12px,1.1vw,14px);">Pipe17 + AI/compliance investment is an <strong style="color:var(--text);">operational-strain signal</strong> — the hook for a manufacturing partner who reduces upstream complexity.</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Key Projects & KPIs","script":"Their Pipe17 rollout and AI-driven compliance work are clear signals of operational strain during rapid growth — that's exactly the hook for a manufacturing partner who can simplify their upstream complexity.","notes":["Gut Health+ capsules, Pipe17 rollout, AI/agentic compliance tools","KPIs: T-ROMs, SKU velocity, retail doors, subscription retention","Pipe17 signals operational strain — our entry hook"]}
+  </script>
+</div>
+
+<!-- 7. SECTION 03: RELATIONSHIP LANDSCAPE -->
+<div class="slide" data-slide="7">
+  <div class="section-kicker anim-1"><span class="num">03</span><p class="slide-tag" style="margin:0;">Relationship Landscape</p></div>
+  <h2 class="anim-2">Where TOSLA Stands Today</h2>
+  <div class="stats-row anim-3" style="max-width:420px;">
+    <div class="stat-card bounce-1" style="text-align:center;"><div class="stat-number blue">0</div><div class="stat-label">Touchpoints to Date</div><div class="stat-desc">MRO is a cold prospect for TOSLA</div></div>
+  </div>
+  <p class="subtitle anim-4 mt-16" style="max-width:760px;">Ghiyam is the public face but largely insulated from cold outreach — major decisions still likely route through her. The realistic entry points are operational leaders solving MRO's actual growth pain.</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Relationship Landscape","script":"We have zero touchpoints with MaryRuth Organics today. Ghiyam is largely insulated from cold outreach, so our realistic path in is through operational leadership, not the founder.","notes":["Zero touchpoints — cold prospect","Founder insulated from cold outreach","Entry via operational leadership, not the founder"]}
+  </script>
+</div>
+
+<!-- 8. CONTACTS -->
+<div class="slide" data-slide="8">
+  <p class="slide-tag anim-1">Target Contacts Inside MRO</p>
+  <h2 class="anim-2">Click a Card to Expand</h2>
+  <div class="contact-row anim-3">
+    <div class="card-v2 contact-card glow-blue bounce-1" onclick="this.classList.toggle('expanded')">
+      <div class="card-title">Chris Heiert</div>
+      <div class="role">President &amp; Chief Service Officer</div>
+      <div class="card-desc">Senior operator — strong candidate for a warmer entry point.</div>
+      <div class="card-expand"><div class="card-expand-inner">Owns cross-functional operations; likely closest to Pipe17 and manufacturing-adjacent decisions.</div></div>
+      <div class="expand-hint">&#9660;</div>
+    </div>
+    <div class="card-v2 contact-card glow-orange bounce-2" onclick="this.classList.toggle('expanded')">
+      <div class="card-title">Jay Hunter</div>
+      <div class="role">Chief Revenue Officer</div>
+      <div class="card-desc">Commercial lead — relevant if positioning is framed around revenue/margin impact.</div>
+      <div class="card-expand"><div class="card-expand-inner">Best approached with a margin/bioavailability angle (liposomal SKUs), not a pure ops pitch.</div></div>
+      <div class="expand-hint">&#9660;</div>
+    </div>
+    <div class="card-v2 contact-card glow-green bounce-3" onclick="this.classList.toggle('expanded')">
+      <div class="card-title">Jim Rodden</div>
+      <div class="role">Chief People Officer</div>
+      <div class="card-desc">Less direct, but useful for org-context and hiring signals.</div>
+      <div class="card-expand"><div class="card-expand-inner">Active Finance/Supply Chain hiring surge under his org is itself a growth signal worth tracking.</div></div>
+      <div class="expand-hint">&#9660;</div>
+    </div>
+  </div>
+  <p class="subtitle anim-4 mt-16" style="font-size:clamp(11px,1vw,13px);font-style:italic;">Titles sourced from data-broker platforms — verify before outreach.</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Target Contacts","script":"Three names to verify and approach: Chris Heiert as President and Chief Service Officer, Jay Hunter as CRO, and Jim Rodden as Chief People Officer for org context.","notes":["Chris Heiert — President & CSO, warmest entry point","Jay Hunter — CRO, margin/revenue framing","Jim Rodden — CPO, hiring-surge signal","Verify titles before outreach — sourced from data brokers"]}
+  </script>
+</div>
+
+<!-- 9. SECTION 04: WHITESPACE (FLIP CARDS) -->
+<div class="slide" data-slide="9">
+  <div class="section-kicker anim-1"><span class="num">04</span><p class="slide-tag" style="margin:0;">Whitespace — Liquid &amp; Liposomal Manufacturing</p></div>
+  <h2 class="anim-2">Four Opportunities, Click to Flip</h2>
+  <div class="flip-grid anim-3">
+    <div class="flip-bounce-wrap bounce-1">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-front border-orange">
+          <div class="flip-title">Liquid Nootropics</div>
+          <div class="flip-subtitle highlight-orange">~11.8% CAGR</div>
+          <div class="flip-hint">click to flip</div>
+        </div>
+        <div class="flip-back"><div class="flip-detail">Fastest-growing functional sub-category by MRO's own market intel. <strong>No SKU in-market yet.</strong></div></div>
+      </div>
+    </div>
+    <div class="flip-bounce-wrap bounce-2">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-front border-yellow">
+          <div class="flip-title">Postbiotic Liquids</div>
+          <div class="flip-subtitle highlight-yellow">Shelf-Stable</div>
+          <div class="flip-hint">click to flip</div>
+        </div>
+        <div class="flip-back"><div class="flip-detail">Extends Gut Health+ capsules <strong>without the cold-chain burden</strong> of live-culture liquids.</div></div>
+      </div>
+    </div>
+    <div class="flip-bounce-wrap bounce-3">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-front border-orange">
+          <div class="flip-title">Prenatal / Postnatal Liquids</div>
+          <div class="flip-subtitle highlight-orange">&ldquo;Very High&rdquo; Fit</div>
+          <div class="flip-hint">click to flip</div>
+        </div>
+        <div class="flip-back"><div class="flip-detail">Flagged internally by MRO as a strong fit for its mother/family core audience. <strong>Not yet in-market.</strong></div></div>
+      </div>
+    </div>
+    <div class="flip-bounce-wrap bounce-4">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-front border-yellow">
+          <div class="flip-title">Vegan Collagen Liquids</div>
+          <div class="flip-subtitle highlight-yellow">Growth SKU</div>
+          <div class="flip-hint">click to flip</div>
+        </div>
+        <div class="flip-back"><div class="flip-detail">Extends the Lustriva hair-growth platform, <strong>already a growth line</strong> for MRO.</div></div>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Whitespace — Liquid & Liposomal Manufacturing","script":"MRO's whole brand is built on liquids-first. Four whitespace opportunities line up directly with TOSLA's core capability: liquid nootropics, shelf-stable postbiotic liquids, prenatal and postnatal liquids, and vegan collagen.","notes":["Liquid nootropics — ~11.8% CAGR, no SKU yet","Postbiotic liquids — shelf-stable advantage over cold-chain","Prenatal/postnatal liquids — flagged internally as very high fit","Vegan collagen — extends the growing Lustriva line"]}
+  </script>
+</div>
+
+<!-- 10. THE PROBLEM (KEY QUOTE) -->
+<div class="slide" data-slide="10">
+  <div class="glow-blob glow-purple" style="top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  <div class="cb-wrap anim-3" style="text-align:center;align-items:center;">
+    <p class="slide-tag anim-1" style="align-self:center;">The Problem This Solves for MRO</p>
+    <blockquote class="cb-keyquote anim-2" style="text-align:left;">MRO sources specialized liquids from overseas OEMs — while running a negative cash-flow cycle and a documented 2021 recall history.</blockquote>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"The Problem This Solves for MRO","script":"MRO sources specialized liquids from overseas OEMs, while running a negative cash-flow cycle and carrying a documented 2021 recall history. That's the structural gap TOSLA fits into.","notes":["Overseas OEM dependency for specialized liquids","Negative cash-flow operating cycle","2021 infant probiotic recall on record"]}
+  </script>
+</div>
+
+<!-- 11. PAIN POINTS + FIT -->
+<div class="slide" data-slide="11">
+  <p class="slide-tag anim-1">Why This Is a Structural Fit</p>
+  <h2 class="anim-2">Three Pain Points, One Fit</h2>
+  <div class="stats-row anim-3" style="align-items:stretch;">
+    <div class="stat-card bounce-1" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);margin-bottom:6px;">Overseas Lead Time &amp; QC Risk</div><div class="stat-desc">China-based OEM partners extend timelines and quality-control distance.</div></div>
+    <div class="stat-card bounce-2" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);margin-bottom:6px;">Cold-Chain &amp; Shelf-Life Exposure</div><div class="stat-desc">Liquid portfolio flagged internally for temp-control risk, incl. a 2021 recall.</div></div>
+    <div class="stat-card bounce-3" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);margin-bottom:6px;">Cash-Flow-Dependent Terms</div><div class="stat-desc">MRO sells before it pays manufacturers — payment flexibility is a gating factor.</div></div>
+  </div>
+  <div class="cta-box anim-4"><p style="font-size:clamp(13px,1.3vw,16px);font-weight:600;color:var(--text-muted);">TOSLA Fit</p><p style="font-size:clamp(13px,1.2vw,15px);margin-top:8px;">A U.S.-based, quality-mature liquid/liposomal manufacturer that cuts lead time, supports FDA/ISO compliance, and fits negotiated payment terms — a structural fit, not a cheaper-vendor pitch.</p></div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Three Pain Points, One Fit","script":"Three pain points line up for us: overseas lead time and QC risk, cold-chain and shelf-life exposure, and cash-flow-dependent payment terms. TOSLA fits structurally, not just on price.","notes":["Overseas OEM lead time and QC distance","Cold-chain and shelf-life exposure, 2021 recall","Cash-flow-dependent payment terms are a gating factor","TOSLA: US-based, quality-mature, terms-flexible fit"]}
+  </script>
+</div>
+
+<!-- 12. COMPETITOR TABLE -->
+<div class="slide" data-slide="12">
+  <p class="slide-tag anim-1">Section 05 — Account Competitor Analysis</p>
+  <h2 class="anim-2">Who MRO Competes Against</h2>
+  <div class="table-wrap anim-3">
+    <table>
+      <thead><tr><th>Segment</th><th>Companies</th><th>Relative Position</th></tr></thead>
+      <tbody>
+        <tr><td class="cell-highlight">Direct VMS Rivals</td><td>Garden of Life, Ritual, OLLY, HealthyCell, Tropical Oasis, Code Age</td><td class="cell-muted">Garden of Life leads MRO on e-commerce revenue/conversion</td></tr>
+        <tr><td class="cell-highlight">Incumbent Majors</td><td>Abbott, Herbalife, Bayer, Nestlé Health Science, Vital Proteins</td><td class="cell-muted">Vertically-integrated manufacturing MRO can't match alone</td></tr>
+        <tr><td class="cell-highlight">Clinical-Adjacent</td><td>Thorne, Pure Encapsulations</td><td class="cell-muted">Practitioner channel, limited overlap with MRO's DTC base</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Account Competitor Analysis","script":"MRO competes against direct VMS rivals like Garden of Life, Ritual and OLLY, incumbent majors like Abbott and Nestlé Health Science, and clinical-adjacent brands like Thorne.","notes":["Direct rivals: Garden of Life, Ritual, OLLY, and others","Incumbent majors: Abbott, Herbalife, Nestlé Health Science","Clinical-adjacent: Thorne, Pure Encapsulations"]}
+  </script>
+</div>
+
+<!-- 13. STRENGTHS / WEAKNESSES -->
+<div class="slide" data-slide="13">
+  <p class="slide-tag anim-1">Competitive Position</p>
+  <h2 class="anim-2">Where Rivals Lead, Where MRO Leads</h2>
+  <div class="cb-pair anim-3" style="max-width:1000px;">
+    <div class="cb-card problem">
+      <div class="cb-card-label problem-label">&#9650; Where Rivals Lead</div>
+      <p class="cb-card-text">Garden of Life reportedly outperforms MRO on e-commerce revenue &amp; conversion. Larger incumbents bring vertically-integrated manufacturing MRO can't match alone.</p>
+    </div>
+    <div class="cb-card fix">
+      <div class="cb-card-label fix-label">&#9679; Where MRO Leads</div>
+      <p class="cb-card-text">Founder-led authenticity, a TikTok-native commerce engine, and life-stage-specific liquid SKU breadth — the edge TOSLA can help MRO defend and extend.</p>
+    </div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Where Rivals Lead, Where MRO Leads","script":"Garden of Life beats MRO on e-commerce scale, and bigger players have integrated manufacturing MRO can't match. But MRO's founder authenticity, TikTok engine, and SKU breadth are real advantages we can help them defend.","notes":["Rivals lead on e-commerce scale and integrated manufacturing","MRO leads on founder authenticity and TikTok commerce","SKU breadth in liquids is the edge to defend"]}
+  </script>
+</div>
+
+<!-- 14. BUYER'S JOURNEY -->
+<div class="slide" data-slide="14">
+  <p class="slide-tag anim-1">Sections 06–07 — Path to a Qualified Opportunity</p>
+  <h2 class="anim-2">The Projected Buyer's Journey</h2>
+  <div class="arch-flow anim-3">
+    <div class="arch-box box-blue bounce-1"><div class="arch-label text-blue">1</div><div class="arch-role">NACDS Expo touchpoint, Aug 15–17, Boston</div></div>
+    <div class="arch-arrow anim-3"><div class="arrow-line"></div></div>
+    <div class="arch-box box-blue bounce-2"><div class="arch-label text-blue">2</div><div class="arch-role">LinkedIn outreach to Supply Chain / Product Dev</div></div>
+    <div class="arch-arrow anim-3"><div class="arrow-line"></div></div>
+    <div class="arch-box box-blue bounce-3"><div class="arch-label text-blue">3</div><div class="arch-role">Discovery call on capacity, quality, speed</div></div>
+    <div class="arch-arrow anim-3"><div class="arrow-line"></div></div>
+    <div class="arch-box box-blue bounce-4"><div class="arch-label text-blue">4</div><div class="arch-role">Small pilot batch / dual-sourcing arrangement</div></div>
+    <div class="arch-arrow anim-3"><div class="arrow-line"></div></div>
+    <div class="arch-box box-blue bounce-4"><div class="arch-label text-blue">5</div><div class="arch-role">Contract expansion if pilot performs</div></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"The Projected Buyer's Journey","script":"Five steps: a NACDS Expo touchpoint, LinkedIn outreach to Supply Chain or Product Development, a discovery call, a small pilot or dual-sourcing arrangement, then contract expansion if the pilot performs.","notes":["1. NACDS Expo touchpoint","2. LinkedIn outreach to Ops/Product Dev","3. Discovery conversation","4. Small pilot or dual-sourcing arrangement","5. Contract expansion if pilot performs"]}
+  </script>
+</div>
+
+<!-- 15. EVALUATION CRITERIA -->
+<div class="slide" data-slide="15">
+  <p class="slide-tag anim-1">How MRO Will Evaluate Us</p>
+  <h2 class="anim-2">Evaluation Criteria</h2>
+  <div class="pill-row anim-3" style="max-width:820px;">
+    <span class="pill">Capacity &amp; Scalability</span>
+    <span class="pill">FDA / ISO Maturity</span>
+    <span class="pill">Formulation Science Depth</span>
+    <span class="pill">Speed vs. Overseas OEMs</span>
+    <span class="pill">Payment-Term Flexibility</span>
+  </div>
+  <div class="cta-box anim-4"><p style="font-size:clamp(13px,1.3vw,16px);font-weight:600;color:var(--text-muted);">Key Decision Criteria</p><p style="font-size:clamp(13px,1.2vw,15px);margin-top:8px;">Given MRO's negative cash-flow model, Finance/Supply Chain alignment on payment terms is likely as important as formulation capability. Win with technical credibility <em>and</em> commercial flexibility — not price alone.</p></div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Evaluation Criteria","script":"They'll evaluate us on capacity, FDA and ISO maturity, formulation depth, speed versus their overseas OEMs, and payment-term flexibility — and given their cash-flow model, terms may matter as much as capability.","notes":["Capacity, quality-system maturity, formulation depth","Speed advantage vs. overseas OEMs","Payment-term flexibility is a likely gating factor"]}
+  </script>
+</div>
+
+<!-- 16. OFFER + REVENUE PATH -->
+<div class="slide" data-slide="16">
+  <p class="slide-tag anim-1">Section 08 — What TOSLA Pitches</p>
+  <h2 class="anim-2">The Offer &amp; Revenue Path</h2>
+  <div class="stats-row anim-3">
+    <div class="stat-card bounce-1" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);">Liquid Contract Mfg</div><div class="stat-desc">MRO's core, highest-priority format.</div></div>
+    <div class="stat-card bounce-2" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);">Liposomal Delivery</div><div class="stat-desc">Supports higher-bioavailability, higher-margin SKUs.</div></div>
+    <div class="stat-card bounce-3" style="text-align:left;"><div class="card-title" style="font-weight:700;font-size:clamp(14px,1.3vw,17px);">Functional Formulation</div><div class="stat-desc">Nootropics, postbiotics, prenatal — new-category enablement.</div></div>
+  </div>
+  <div class="cb-pair anim-4" style="max-width:700px;">
+    <div class="cb-card"><div class="cb-card-label" style="color:var(--accent-green);">Year 1 — Pilot</div><p class="cb-card-text">1–2 new liquid/liposomal SKUs in a limited production run.</p></div>
+    <div class="cb-card"><div class="cb-card-label" style="color:var(--accent-green);">Year 2 — Expansion</div><p class="cb-card-text">Second functional liquid category, contingent on pilot performance.</p></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"The Offer & Revenue Path","script":"We're pitching liquid contract manufacturing, liposomal delivery, and functional formulation. Year one is a 1-2 SKU pilot; year two expands into a second functional category if the pilot performs.","notes":["Offer: liquid CM, liposomal delivery, functional formulation","Year 1: 1–2 SKU pilot run","Year 2: second functional category, contingent on Year 1"]}
+  </script>
+</div>
+
+<!-- 17. RISKS -->
+<div class="slide" data-slide="17">
+  <p class="slide-tag anim-1">Risks, Barriers &amp; Counters</p>
+  <h2 class="anim-2">What Could Slow This Down</h2>
+  <div class="status-timeline anim-3">
+    <div class="status-item stag-1"><div class="status-dot red"></div><div class="status-text"><strong>Litigation Risk</strong> — Pre-litigation auto-renewal investigation (Apr–Jun 2026). Counter: lead with a low-commitment pilot, not a long-term contract.</div></div>
+    <div class="status-item stag-2"><div class="status-dot orange"></div><div class="status-text"><strong>Founder-Controlled Cap Table</strong> — Ghiyam holds majority ownership. Counter: build the case with named operators who carry it upward.</div></div>
+    <div class="status-item stag-3"><div class="status-dot orange"></div><div class="status-text"><strong>Leadership Turnover Risk</strong> — Mixed employee sentiment could extend decision cycles. Counter: maintain multi-threaded relationships.</div></div>
+    <div class="status-item stag-4"><div class="status-dot yellow"></div><div class="status-text"><strong>Switching Costs</strong> — Existing OEM relationships &amp; cash-flow-dependent terms. Counter: position TOSLA as additive/dual-source first.</div></div>
+    <div class="status-item stag-5"><div class="status-dot yellow"></div><div class="status-text"><strong>Competitive Intensity</strong> — Garden of Life outperforming may constrain MRO's vendor-evaluation bandwidth.</div></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Risks, Barriers & Counters","script":"Five risks to manage: a pre-litigation billing investigation, the founder-controlled cap table, leadership turnover, switching costs from existing OEMs, and competitive intensity in the category — each with a counter.","notes":["Litigation risk — lead with low-commitment pilot","Founder-controlled cap table — build case with named operators","Leadership turnover — multi-thread relationships","Switching costs — position as additive/dual-source","Competitive intensity may limit MRO's bandwidth"]}
+  </script>
+</div>
+
+<!-- 18. ACTION PLAN -->
+<div class="slide" data-slide="18">
+  <p class="slide-tag anim-1">Section 09 — Action Plan</p>
+  <h2 class="anim-2">Top Five Objectives</h2>
+  <div class="cb-wrap anim-3" style="max-width:820px;">
+    <div class="cb-card-text" style="font-size:clamp(13px,1.4vw,17px);">
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
+        <li><strong style="color:var(--accent-blue);">1.</strong> Identify and verify named Supply Chain / Product Development contacts.</li>
+        <li><strong style="color:var(--accent-blue);">2.</strong> Secure a warm touchpoint at NACDS Total Store Expo, Aug 15–17, Boston.</li>
+        <li><strong style="color:var(--accent-blue);">3.</strong> Deliver a targeted pitch centered on MRO's own stated whitespace.</li>
+        <li><strong style="color:var(--accent-blue);">4.</strong> Secure a low-commitment pilot run within two quarters of first contact.</li>
+        <li><strong style="color:var(--accent-blue);">5.</strong> Establish TOSLA as a qualified dual-source manufacturer within 12 months.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cta-box anim-4"><p style="font-size:clamp(13px,1.3vw,16px);font-weight:600;color:var(--text-muted);">Relationship Target</p><p style="font-size:clamp(13px,1.2vw,15px);margin-top:8px;">Move MRO from Cold Prospect &rarr; Qualified Opportunity within Q4 2026, anchored on NACDS Expo.</p></div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Top Five Objectives","script":"Five objectives: verify our contacts, secure a NACDS Expo touchpoint, deliver a whitespace-led pitch, land a low-commitment pilot within two quarters, and become a qualified dual-source manufacturer within a year.","notes":["Verify Supply Chain / Product Dev contacts","Secure NACDS Expo touchpoint","Whitespace-led pitch, not generic capacity pitch","Pilot within two quarters of first contact","Qualified dual-source status within 12 months"]}
+  </script>
+</div>
+
+<!-- 19. CLOSING (CTA) -->
+<div class="slide" data-slide="19">
+  <div class="glow-blob glow-blue" style="top:30%;left:30%;"></div>
+  <div class="glow-blob glow-green" style="bottom:20%;right:20%;"></div>
+  <div class="image-frame image-logo anim-1">
+    <img src="assets/tosla-logo-navy.png" alt="TOSLA" class="slide-image">
+  </div>
+  <h2 class="anim-2" style="margin-top:8px;">Next Step: <span class="highlight-blue">NACDS Total Store Expo</span></h2>
+  <p class="subtitle anim-3 mt-16">August 15–17, 2026 · Boston, MA</p>
+  <div class="cta-box anim-4">
+    <p style="font-size:clamp(14px,1.4vw,16px);font-weight:600;color:var(--text-muted);">Critical Resources</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;font-size:clamp(12px,1.2vw,14px);text-align:left;">
+      <div style="display:flex;gap:8px;align-items:center;"><span style="color:var(--accent-blue);">&#9679;</span><span>This account plan &amp; MaryRuth Organics intelligence report</span></div>
+      <div style="display:flex;gap:8px;align-items:center;"><span style="color:var(--accent-green);">&#9679;</span><span>TOSLA liquid/liposomal capability deck (in prep)</span></div>
+      <div style="display:flex;gap:8px;align-items:center;"><span style="color:var(--accent-orange);">&#9679;</span><span>NACDS Total Store Expo badge-scan list</span></div>
+      <div style="display:flex;gap:8px;align-items:center;"><span style="color:var(--accent-purple);">&#9679;</span><span>LinkedIn Sales Navigator for contact verification</span></div>
+    </div>
+  </div>
+  <p class="subtitle anim-5" style="font-size:clamp(11px,1vw,13px);margin-top:14px;">Confidential — Internal Use Only · Prepared by TOSLA Business Development</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Next Step: NACDS Total Store Expo","script":"Our next step is the NACDS Total Store Expo, August 15th through 17th in Boston — that's our anchor trigger event to move this from cold prospect to qualified opportunity.","notes":["NACDS Total Store Expo, Aug 15–17, 2026, Boston","Critical resources: account plan, capability deck, badge list, Sales Navigator","Confidential — internal use only"]}
+  </script>
+</div>
+
+</div>
+
+<script>
+/* ===========================================
+   SLIDES RUNTIME (assets/slides-runtime.js) — copied verbatim
+   =========================================== */
+const pc = document.getElementById('particles');
+for (let i = 0; i < 35; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random()*100+'%';
+  p.style.animationDuration = (8+Math.random()*14)+'s';
+  p.style.animationDelay = Math.random()*10+'s';
+  p.style.width = p.style.height = (1+Math.random()*2)+'px';
+  pc.appendChild(p);
+}
+
+const slides = document.querySelectorAll('.slide');
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+const slideNav = document.getElementById('slideNav');
+let current = 0;
+const total = slides.length;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'slide-nav-dot' + (i===0?' active':'');
+  dot.addEventListener('click', () => goTo(i));
+  slideNav.appendChild(dot);
+});
+
+function updateUI() {
+  progress.style.width = ((current+1)/total*100)+'%';
+  counter.textContent = `${current+1} / ${total}`;
+  document.querySelectorAll('.slide-nav-dot').forEach((d,i) => d.classList.toggle('active', i===current));
+}
+
+function goTo(index) {
+  if (index<0 || index>=total || index===current) return;
+  current = index;
+  slides.forEach((s,i) => s.classList.toggle('active', i===current));
+  updateUI();
+  showSpeakerNotes(current);
+}
+
+function next() { goTo(current+1); }
+function prev() { goTo(current-1); }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+  if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+  if (e.key==='Home') { e.preventDefault(); goTo(0); }
+  if (e.key==='End') { e.preventDefault(); goTo(total-1); }
+});
+
+let touchStart = 0;
+document.addEventListener('touchstart', (e) => { touchStart=e.touches[0].clientX; });
+document.addEventListener('touchend', (e) => {
+  const diff = touchStart - e.changedTouches[0].clientX;
+  if (Math.abs(diff)>50) { diff>0 ? next() : prev(); }
+});
+
+let wheelCD = false;
+document.addEventListener('wheel', (e) => {
+  if (wheelCD) return; wheelCD = true;
+  setTimeout(() => wheelCD=false, 600);
+  if (e.deltaY>0||e.deltaX>0) next(); else prev();
+}, {passive:true});
+
+updateUI();
+
+function showSpeakerNotes(index) {
+  const slide = slides[index];
+  const notesEl = slide.querySelector('script.slide-notes') || slide.querySelector('[class="slide-notes"]');
+  console.clear();
+  if (notesEl) {
+    try {
+      const n = JSON.parse(notesEl.textContent);
+      const title = n.title || 'Slide ' + (index + 1);
+      const script = n.script || '';
+      const notes = n.notes || [];
+      var parts = ['\n%c📋 Slide ' + (index+1) + '/' + total + ': ' + title + '\n'];
+      var styles = ['font-size:16px;font-weight:bold;color:#2563eb;'];
+      if (script) {
+        parts.push('\n%c' + script + '\n');
+        styles.push('font-size:14px;color:#d97706;line-height:1.6;');
+      }
+      if (notes.length) {
+        notes.forEach(function(note) {
+          parts.push('\n  %c•%c ' + note);
+          styles.push('color:#16a34a;font-size:14px;');
+          styles.push('color:#16a34a;font-size:14px;');
+        });
+        parts.push('\n');
+      }
+      console.log.apply(console, [parts.join('')].concat(styles));
+    } catch(e) {}
+  } else {
+    console.log('%c📋 Slide ' + (index+1) + '/' + total, 'font-size:16px;font-weight:bold;color:#2563eb;');
+  }
+}
+
+setTimeout(function() { showSpeakerNotes(0); }, 500);
+</script>
+</body>
+</html>
