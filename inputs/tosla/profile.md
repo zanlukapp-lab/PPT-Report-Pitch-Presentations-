@@ -100,3 +100,58 @@ consumers keep using.
 The future of wellness belongs to products that combine science, user
 experience and commercial scalability. Mission: transform promising
 ingredients into products people trust, enjoy and use consistently.
+
+## Public facts (web search, 2026-10-06)
+
+The user pointed to https://toslagroup.com/ as the full source. This
+environment's network policy blocks that site, so the facts below come
+from search-result extracts of trade press and TOSLA's older site
+(toslanutricosmetics.com). Tag: REPORTED unless noted. Check against
+toslagroup.com before quoting externally.
+
+- Founded 2014 to develop and produce liquid nutricosmetics; based in
+  Ajdovscina, Slovenia; more than 10 years' experience with strong export
+  presence. (toslanutricosmetics.com/about-us; NutraIngredients supplier
+  page; Cosmetics Business company page)
+- Describes itself as a "liquid first CDMO partner": white-label and custom
+  co-development of liquid supplements for premium beauty, health,
+  wellness and retail own brands. (NutraIngredients supplier page)
+- Certified B Corporation (eco-friendly and upcycled ingredient sourcing,
+  responsible manufacturing). (GCI Magazine; Cosmetics Business)
+- Expanding from nutricosmetics into full-spectrum nutraceuticals, aimed at
+  the gap between efficacy and adherence. (Cosmetics & Toiletries / GCI,
+  "From Nutricosmetics to Nutraceuticals: Inside TOSLA's Next Chapter of
+  Scalable Innovation")
+- TOSLA 3 "super factory" next to the new Pavlina headquarters combines
+  manufacturing, R&D and strategic development; total capacity 45 million
+  bottles a year; four 25-ton production vessels, fully automated filling
+  line, turbo-mixing premix vessel. Production utilisation kept below 40%
+  so capacity is immediately available for fast-growing partners and new
+  launches. (National Law Review press release; Cosmetics & Toiletries)
+- VELIOUS(TM) is an in-house masking/flavour technology that makes
+  formulations taste good without relying on added sugar, e.g. to balance
+  collagen's taste. (Vitafoods Europe 2026 exhibitor listing)
+- Clinical evidence: a series of placebo-controlled, peer-reviewed trials
+  over about three years on combinations of hydrolysed collagen,
+  hyaluronic acid and vitamin C, nearly 300 participants in total. One
+  double-blind, placebo-controlled, randomised four-way 12-week study (10g
+  hydrolysed fish collagen; 5g or 10g collagen with 1.5g MSM) published in
+  the Journal of Functional Foods reported improved dermis density, skin
+  texture and fewer wrinkles. Study pages: CP10000, CPM6500.
+  (Cosmetics Business; Cosmetics & Toiletries; NutraIngredients, 24 Oct
+  2023; toslanutricosmetics.com)
+- 21 Apr 2026: launched with Geltor the first vegan "signaling collagen"
+  liquid supplement - a 30 mL daily shot with 1g PrimaColl (type 21
+  biotech collagen) and VELIOUS(TM), cherry-raspberry. Shown at Vitafoods
+  Europe (Barcelona, 5-7 May 2026) and NYSCC Suppliers' Day (NYC, 19-20
+  May 2026). (PR Newswire; Geltor; Nutrition Insight)
+- Partner brands: formulations "loved by millions of returning customers
+  across partners' brands"; no client brand names found in public sources.
+  Related white-label site: whitelabelcollagen.com.
+
+## Not found publicly
+
+Named client brands, minimum order quantities, lead times, price
+positioning, regulatory certifications beyond B Corp (e.g. GMP, ISO,
+FSSC), formats beyond liquid bottles/shots. Ask the user before an
+approach brief relies on any of these.
