@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supplement Brand Patterns</title>
+<style>
+:root{
+  --bg:#ffffff; --panel:#f6f6f4; --panel2:#eef4fc; --line:#e2e1dc;
+  --ink:#1f2a44; --text:#2b2b2b; --text2:#52514e; --muted:#7a7974;
+  --accent:#2a78d6; --accent-ink:#1c5cab; --warn:#eb6834; --warn-bg:#fdf0ea; --warn-ink:#a8501f;
+  --b1:#2a78d6; --b2:#eb6834; --b3:#1baf7a; --b4:#eda100; --b5:#e87ba4;
+  --t-online:#2a78d6; --t-retail:#eb6834; --t-social:#1baf7a; --t-capital:#4a3aa7; --t-marker:#8a8984;
+  --fs: clamp(15px, 1.15vw + 4px, 22px);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:var(--fs);line-height:1.45}
+button{font:inherit;color:inherit}
+#deck{position:fixed;inset:0 0 64px 0;overflow:hidden}
+.slide{position:absolute;inset:0;padding:2.4vh max(16px,4.5vw) 1.5vh;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .25s ease}
+.slide.active{opacity:1;visibility:visible}
+.inner{max-width:1500px;margin:0 auto}
+.kicker{font-size:.72em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 .4em}
+h1.lead{font-size:1.6em;line-height:1.2;color:var(--ink);margin:0 0 .35em;font-weight:750;max-width:62ch}
+p.sub{color:var(--text2);margin:0 0 1em;max-width:90ch;font-size:.95em}
+.tag{display:inline-block;font-size:.62em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.18em .55em;border-radius:4px;vertical-align:middle;white-space:nowrap}
+.tag.medium{background:#dcebfc;color:#184f95}
+.tag.early{background:#fde3d6;color:#8d3f17}
+.tag.caveat{background:#ecebe7;color:#46453f}
+.tag.ev{background:#f1f0ec;color:#46453f}
+.grid{display:grid;gap:1em}
+.card{background:var(--panel);border-radius:10px;padding:1em 1.2em;border-left:5px solid var(--accent)}
+.card.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+.card.neutral{border-left-color:#8a8984}
+.card h3{margin:0 0 .3em;color:var(--ink);font-size:1em}
+.card p{margin:.2em 0;font-size:.88em}
+.small{font-size:.8em;color:var(--text2)}
+.source{font-size:.68em;color:var(--muted);margin-top:.8em}
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:.4em;margin:.2em 0 1em}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.32em .9em;font-size:.8em;cursor:pointer;color:var(--text2)}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tabs button:focus-visible,.navbtn:focus-visible,.kf:focus-visible,.exp:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.swatch{display:inline-block;width:.75em;height:.75em;border-radius:3px;margin-right:.4em;vertical-align:-.05em}
+/* title */
+.title-wrap{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.title-wrap h1{font-size:2.9em;line-height:1.08;color:var(--ink);margin:.1em 0 .3em;max-width:20ch;font-weight:800}
+.title-wrap .meta{color:var(--text2)}
+.brandrow{display:flex;flex-wrap:wrap;gap:.6em;margin:1.4em 0}
+.brandchip{border:1px solid var(--line);border-radius:999px;padding:.3em .9em;font-size:.85em;background:#fff}
+/* key findings */
+.kf{display:grid;grid-template-columns:8.5em 1fr auto;gap:1em;align-items:center;width:100%;text-align:left;background:var(--panel2);border:0;border-left:6px solid var(--accent);border-radius:10px;padding:.8em 1.1em;cursor:pointer;margin-bottom:.6em}
+.kf.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+.kf.neutral{background:var(--panel);border-left-color:#8a8984}
+.kf .stat{font-size:1.75em;font-weight:800;color:var(--accent-ink);line-height:1}
+.kf.warn .stat{color:var(--warn-ink)}.kf.neutral .stat{color:#46453f}
+.kf .statl{font-size:.62em;color:var(--text2);margin-top:.3em;line-height:1.25}
+.kf .hl{font-weight:700;color:var(--ink);font-size:1.02em;line-height:1.3}
+.kf .chev{font-size:1.2em;color:var(--text2);transition:transform .2s}
+.kf[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.kf .detail{grid-column:2/4;font-size:.84em;color:var(--text);display:none;padding-top:.2em}
+.kf[aria-expanded="true"] .detail{display:block}
+/* charts */
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:inherit}
+.tip{position:fixed;pointer-events:none;background:#1f2a44;color:#fff;font-size:.74em;padding:.45em .7em;border-radius:6px;max-width:340px;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;line-height:1.35}
+.hm{border-collapse:separate;border-spacing:4px;width:100%;font-size:.82em}
+.hm th{font-weight:600;color:var(--text2);text-align:center;padding:.3em}
+.hm th.rowh{text-align:left;color:var(--ink);white-space:nowrap}
+.hm td{text-align:center;border-radius:6px;padding:.55em .3em;font-weight:700;cursor:default}
+.two{display:grid;grid-template-columns:1.25fr 1fr;gap:1.6em;align-items:start}
+.two.wide{grid-template-columns:1.7fr 1fr}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1em}
+.panel{background:var(--panel);border-radius:10px;padding:1em 1.2em}
+.panel h3{margin:.1em 0 .4em;color:var(--ink);font-size:1em}
+.kv{margin:.5em 0}.kv b{display:block;font-size:.7em;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.1em}
+.kv span{font-size:.9em}
+.pill{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.12em .6em;font-size:.72em;margin:.1em .2em .1em 0}
+.steps{display:flex;flex-wrap:wrap;align-items:stretch;gap:.4em;margin:.6em 0}
+.step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:.35em .6em;font-size:.74em;max-width:22em;position:relative}
+.step .n{display:block;font-size:.72em;font-weight:700;color:var(--accent)}
+.arrow{align-self:center;color:var(--muted)}
+.exp{display:block;width:100%;text-align:left;border:0;background:var(--panel);border-radius:10px;padding:.75em 1em;margin-bottom:.55em;cursor:pointer;border-left:5px solid var(--accent)}
+.exp.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+.exp .t{font-weight:700;color:var(--ink)}
+.exp .d{display:none;font-size:.84em;margin-top:.4em;color:var(--text)}
+.exp[aria-expanded="true"] .d{display:block}
+.exp .hint{float:right;color:var(--muted);font-size:.8em}
+.legend{display:flex;flex-wrap:wrap;gap:1em;font-size:.75em;color:var(--text2);margin:.3em 0}
+.big{font-size:1.25em;font-weight:700;color:var(--ink);line-height:1.3}
+ol.impl{padding-left:1.2em;margin:0}
+ol.impl li{margin-bottom:.55em;font-size:.9em}
+ol.impl li b{color:var(--ink)}
+table.simple{border-collapse:collapse;width:100%;font-size:.78em}
+table.simple th{background:var(--ink);color:#fff;text-align:left;padding:.45em .6em;font-weight:600}
+table.simple td{border-bottom:1px solid var(--line);padding:.45em .6em;vertical-align:top}
+.chgrid td{text-align:center;font-weight:600;font-size:.9em}
+.chgrid td.first{background:#1f2a44;color:#fff}.chgrid td.yes{background:#2a78d6;color:#fff}.chgrid td.no{background:#f3c4ad;color:#1f2a44}.chgrid td.nl{color:#9a9994}
+.chgrid tr.dim td{opacity:.35}
+.chgrid th.colsel{cursor:pointer;text-decoration:underline dotted}
+.chgrid th.colsel.on{background:#2a78d6}
+/* nav */
+#bar{position:fixed;left:0;right:0;bottom:0;height:64px;border-top:1px solid var(--line);background:#fff;display:flex;align-items:center;gap:.6em;padding:0 max(16px,2vw);z-index:20}
+#progress{position:fixed;left:0;bottom:64px;height:4px;background:var(--accent);transition:width .25s;z-index:21}
+.navbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:.35em .9em;cursor:pointer;font-size:.85em;color:var(--ink);font-weight:600}
+.navbtn:disabled{opacity:.35;cursor:default}
+#count{font-size:.8em;color:var(--text2);min-width:5.5em;text-align:center}
+#stitle{flex:1;font-size:.8em;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#menu{position:fixed;bottom:72px;left:max(16px,2vw);background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:.4em;display:none;z-index:30;max-height:70vh;overflow:auto;min-width:min(420px,90vw)}
+#menu.open{display:block}
+#menu button{display:flex;gap:.7em;width:100%;text-align:left;border:0;background:none;padding:.45em .7em;border-radius:6px;cursor:pointer;font-size:.85em}
+#menu button:hover,#menu button.cur{background:var(--panel2)}
+#menu button .mn{color:var(--muted);min-width:1.6em}
+.dots{display:flex;gap:4px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:#d6d5d0;padding:0;cursor:pointer}
+.dots button.cur{background:var(--accent)}
+@media (max-width:900px){
+  .two,.two.wide,.three{grid-template-columns:1fr}
+  .kf{grid-template-columns:5.5em 1fr auto}
+  h1.lead{font-size:1.4em}
+  .title-wrap h1{font-size:2.1em}
+  .dots,#stitle{display:none}
+}
+@media print{#bar,#progress,#menu{display:none}.slide{position:relative;opacity:1;visibility:visible;page-break-after:always;inset:auto}#deck{position:static}}
+</style>
+</head>
+<body>
+<div id="deck"></div>
+<div id="progress"></div>
+<div id="menu" role="menu" aria-label="Slides"></div>
+<nav id="bar" aria-label="Slide navigation">
+  <button class="navbtn" id="menuBtn" aria-haspopup="true" aria-expanded="false" title="Slide menu (M)">&#9776; Slides</button>
+  <button class="navbtn" id="prev" aria-label="Previous slide">&larr; Back</button>
+  <span id="count"></span>
+  <button class="navbtn" id="next" aria-label="Next slide">Next &rarr;</button>
+  <span id="stitle"></span>
+  <div class="dots" id="dots"></div>
+</nav>
+<div class="tip" id="tip"></div>
+<script>
+const D = {"title": "What five successful supplement brands have in common", "run_date": "6 October 2026", "source_line": "Source: Cross-brand pattern report, 2026-10-06 (brand-pattern-finder)", "source_scores": "Source: brand reports' scorecards, 2026-10-06 (1-5 scale); same scores in the pattern report's comparison matrix", "source_timeline": "Source: timeline tables in the five brand reports, 2026-10-06; dates as reported (several approximate)", "brand_keys": ["mr", "fs", "nv", "vg", "sp"], "brand_meta": {"mr": {"name": "MaryRuth's", "home": "US", "founded": "2014"}, "fs": {"name": "Free Soul", "home": "UK", "founded": "2017"}, "nv": {"name": "Novomins", "home": "UK", "founded": "2020"}, "vg": {"name": "Vida Glow", "home": "Australia", "founded": "2014"}, "sp": {"name": "SmartyPants", "home": "US", "founded": "2010-11"}}, "criteria": ["Story clarity", "Story-product fit", "Marketing-channel fit", "Sales-channel fit", "Overall coherence"], "scores": {"mr": [4, 4, 5, 4, 4], "fs": [5, 4, 5, 4, 4], "nv": [4, 3, 3, 4, 3.5], "vg": [5, 4, 4, 4, 4], "sp": [4, 3, 4, 4, 4]}, "key_findings": [{"headline": "All five brands began with a founder's personal problem and proved demand online before physical retail.", "stat": "5 of 5", "stat_label": "brands with a founder-problem origin story", "conf": "Medium", "detail": "Pill aversion (MaryRuth's), a family health scare (Free Soul), unfinished vitamin tubs (Novomins), hair loss (Vida Glow) and a child who would not take vitamins (SmartyPants). Story clarity scores 4-5 for every brand, the highest-scoring criterion. Four brands built reviews, velocity or virality online first and used it to win retail; the gap between launch and major retail was 2-7 years (P1, P3).", "refs": "P1, P3"}, {"headline": "The clearest shared lever is a format or hero that makes the promise visible at a glance.", "stat": "4 of 5", "stat_label": "brands where the format itself proves the story", "conf": "Medium", "detail": "Liquid for 'no pills' (MaryRuth's), gummy for 'kids will take it' and 'easy to remember' (SmartyPants, Novomins), a single 100%-collagen sachet (Vida Glow). It works in a 15-second video, an Amazon thumbnail or a shelf facing without explanation. Free Soul is the exception: it differentiates by audience (women-first), though it still needed a viral hero, Mango Greens (17m+ servings), to break out (P2).", "refs": "P2"}, {"headline": "Three routes reach success: a mass engine, a pharmacy shelf block and prestige beauty.", "stat": "3 routes", "stat_label": "two of them rest on one brand each", "conf": "Medium / Early signal", "detail": "Marketplace-and-creator mass engine: MaryRuth's, Free Soul, earlier SmartyPants (medium, 3 brands). Pharmacy-shelf need-state block: Novomins (early signal, 1 brand). Prestige-beauty placement with celebrity launches: Vida Glow (early signal, 1 brand). SmartyPants also shows a fourth outcome, a strategic exit to Unilever (early signal).", "refs": "Success models, P11, P12"}, {"headline": "The same warning signs appear in all five: range sprawl and claims that run ahead of evidence.", "stat": "5 of 5", "stat_label": "brands with trend-SKU sprawl and claims escalation", "conf": "Medium (common) / Early signal (harm)", "detail": "Story-product fit is the lowest or joint-lowest score for four of the five brands. SmartyPants already faces two class actions aimed at its core promise (2021 'Complete', 2025 fiber). For the other brands no ASA, FTC or court action was found; the risk is mainly that these claims block or reshape EU/UK entry (W1, W2).", "refs": "W1, W2"}, {"headline": "Treat every pattern as a medium-confidence correlation, not a proven cause.", "stat": "0", "stat_label": "failed or stalled brands in the set", "conf": "Caveat", "detail": "Evidence comes from search-result snippets, and some success figures are self-reported or estimated. Timing (TikTok Shop, the gummy boom), category growth, funding and founder networks explain part of the results. Adding failed brands and Spate category data would test the patterns.", "refs": "Caveats, Alternative explanations"}], "matrix": {"mr": {"label": "MaryRuth's (US, 2014)", "story": "Founder-problem: health coach whose clients could not take pills (\"liquids until lunch\"); family, clean, mother-founded", "hero": "Liquid Morning Multivitamin (sugar-free liquid); 2025 growth hero Liquid Multivitamin + Hair Growth (Lustriva, biotin)", "price": "Mid-premium mass (about $31-54 per bottle; deep Amazon deals)", "marketing": "Always-on creator programme (1,000+ creators) plus TikTok Shop 24/7 LIVE and Amazon ads", "first_sales": "Founder's coaching practice and Amazon (2014-15)", "sequence": ["Coaching practice", "Amazon", "DTC", "US natural and mass retail from 2021 (Whole Foods, 800+ Target, Walmart, Costco, Ulta, CVS)", "TikTok Shop from 2024"], "seq_note": "EU/UK grey-market only", "success": "Scale, profit and founder control: about $600M TTM revenue, about $125M EBITDA, at least $1.5B equity value (Forbes estimate, Aug 2026); family owns about 97%", "success_tag": "REPORTED (estimate)"}, "fs": {"label": "Free Soul (UK, 2017)", "story": "Founder-problem: mother and son after a family health scare; \"female-first nutrition\", how women feel, not how they look", "hero": "Started with women's protein powders; viral hero Mango Greens powder (17m+ servings), 7-sachet retail packs", "price": "Masstige (about £15 multi, about £30 greens)", "marketing": "TikTok organic, LIVE and TikTok Shop (first UK brand with two Super Brand Days, Oct 2024 and Jan 2026)", "first_sales": "DTC Shopify with subscription, seeded by gym sampling", "sequence": ["DTC", "Amazon UK", "TikTok Shop (by 2024)", "UK mass retail 2024-25 (H&B, Boots, Tesco, Superdrug, Sainsbury's, Waitrose, Ocado)", "Ireland"], "seq_note": "No US", "success": "Founder-retained revenue growth: £35-42m (2025 to year to Apr 2026), Sunday Times 100 #10, reported EBITDA positive; one angel round", "success_tag": "REPORTED"}, "nv": {"label": "Novomins (UK, 2020)", "story": "Founder-problem: clinician founders (dentist, pharmacologist) saw unfinished, expired vitamin tubs; \"make the healthy choice the obvious choice\"", "hero": "Gummy-only range (40+ SKUs); heroes Women's Bio-Balance, Collagen, Magnesium", "price": "Mass-premium (£19.99 per 60)", "marketing": "Trade and business press, reviews (Trustpilot 4.8, Amazon 5.0); social/creator activity not found", "first_sales": "DTC and Amazon UK (2020)", "sequence": ["DTC / Amazon", "Chemist Warehouse Ireland (Nov 2022)", "UK Boots, Superdrug, H&B (about 20,000 points claimed)", "Chemist Warehouse Australia (550 stores, c. 2025)", "DE/AT online"], "seq_note": "US thin", "success": "Bootstrapped growth (£70k savings, Lloyds debt): £3.5m in about 2 years (company figure), Sunday Times 100 #27 (Jun 2026); current revenue not found", "success_tag": "REPORTED"}, "vg": {"label": "Vida Glow (Australia, 2014)", "story": "Founder-problem plus discovery: founder's hair loss, fixed with marine collagen found in Japan", "hero": "Natural Marine Collagen 3g sachets (powder); later Pro Collagen+, Collagen Liquid Advance", "price": "Prestige beauty (US$50 per 30 sachets)", "marketing": "Celebrity launch events per market, founder Instagram, glossy beauty press", "first_sales": "DTC Australia (2014)", "sequence": ["DTC", "AU health-food wholesale", "China demand (2017)", "2021 global rebrand", "US prestige (Revolve, Neiman Marcus, 2022)", "UK prestige (Harrods, Space NK, Cult Beauty, Sephora UK)", "Sephora AU"], "seq_note": "EU light", "success": "Units and footprint, mostly self-reported (\"one unit every four seconds\", \"world's No.1 marine collagen brand\"); revenue, funding, ownership not found", "success_tag": "Self-reported"}, "sp": {"label": "SmartyPants (US, 2010-11)", "story": "Founder-problem: parent founders could not find a vitamin that was premium, tasty and affordable; \"all-in-one\"", "hero": "Kids multi + omega-3 + D3 gummy; later life-stage, organic, sugar-free gummies", "price": "Masstige list price, often value-tier paid price (Amazon deals)", "marketing": "Amazon reviews and search ranking; mom influencers; Vitamin Angels 1-for-1 cause", "first_sales": "DTC and Amazon (2010-11)", "sequence": ["DTC / Amazon", "Natural (Whole Foods, Sprouts)", "Mass and club (30,000+ doors by 2018: Target, Walmart, Costco)", "Unilever (2020)", "Walmart-specific line (2023)"], "seq_note": "No EU/UK", "success": "Exit: acquired by Unilever (Nov-Dec 2020, terms undisclosed); revenue estimates conflict ($52M 2017; \"over $100M\" pre-exit)", "success_tag": "CONFIRMED (exit) / REPORTED (revenue)"}}, "patterns": [{"id": "P1", "group": "Shared", "name": "Founder's personal problem is the origin story", "count": 5, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "S", "sp": "S"}, "desc": "Every brand opens with a first-person problem, and the story stays the same for years. Story-clarity scores are 4-5 for all five, the highest-scoring criterion in the set.", "exceptions": "None in the set. But this is near-universal in the category, including in brands that fail, so it is probably necessary rather than distinctive."}, {"id": "P2", "group": "Shared", "name": "Format or hero makes the promise visible at a glance", "count": 4, "conf": "Medium", "cells": {"mr": "S", "fs": "X", "nv": "S", "vg": "S", "sp": "S"}, "desc": "The product itself is the proof of the story, so it can be shown in a 15-second video, an Amazon thumbnail or a shelf facing without explanation.", "exceptions": "Free Soul differentiates by audience (women-first), not by format; Mango Greens is a flavour and positioning win within an existing format. Partial: Novomins has no single hero, it has a format applied to a 40+ SKU range."}, {"id": "P3", "group": "Shared", "name": "Demand proven online before physical retail", "count": 4, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "X", "sp": "S"}, "desc": "Each brand built evidence of demand (reviews, sales velocity, social virality) online, then used it to win retail listings. The gap between launch and major retail was 2-7 years.", "exceptions": "Vida Glow moved into Australian health-food wholesale within two years of launch; its prestige retail push (2021-22) did follow years of DTC and China demand. Alternative explanation: this is the standard route for any small brand without retail funding."}, {"id": "P4", "group": "Shared", "name": "Amazon was an early growth engine", "count": 3, "conf": "Medium", "cells": {"mr": "S", "fs": "U", "nv": "S", "vg": "X", "sp": "S"}, "desc": "Amazon was a primary channel from the start; reviews and search rank served as both a sales channel and proof for retail buyers.", "exceptions": "Vida Glow (Amazon presence unclear, may be a reseller). Free Soul has a 'strong Amazon channel' but its start date is not found. Weakened by heavy Amazon discounting at MaryRuth's and SmartyPants: rank may partly be bought."}, {"id": "P5", "group": "Shared", "name": "Creators and social commerce drive sales", "count": 3, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "U", "vg": "X", "sp": "S"}, "desc": "The founder's voice is multiplied by creators who resemble the founder or buyer; in the two newest cases sales happen on the same platform (TikTok Shop). MaryRuth's was the #4 TikTok Shop seller in Jan 2025 with 1,000+ creators; Free Soul held two Super Brand Days; SmartyPants ran a mom-influencer programme (26M+ reach).", "exceptions": "Novomins: no social or creator evidence found (a gap, not evidence of absence). Vida Glow uses celebrities and founder Instagram instead. Timing explains part: TikTok Shop opened in the UK in 2021 and the US in late 2023."}, {"id": "P6", "group": "Shared", "name": "Women buy; ranges follow life stages", "count": 5, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "S", "sp": "S"}, "desc": "Every brand sells mainly to women, for themselves or for their families. Need-state naming maps onto how retail fixtures are organised.", "exceptions": "None, though SmartyPants and MaryRuth's address the mother as buyer for the family. Women are the majority supplement buyer, so this is close to a category trait."}, {"id": "P7", "group": "Shared", "name": "Beauty-from-within is a growth extension", "count": 4, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "S", "sp": "X"}, "desc": "Four brands started in or moved into hair, skin and collagen; in two cases that extension became a top seller (MaryRuth's Hair Growth liquid was the #2 TikTok Shop product in Jan 2025; Novomins Collagen gummies are a stated bestseller).", "exceptions": "SmartyPants (no beauty line found). Beauty claims carry the highest claim risk (see W2)."}, {"id": "P8", "group": "Shared", "name": "A trust stack stands in for clinical trials", "count": 3, "conf": "Medium", "cells": {"mr": "S", "fs": "X", "nv": "S", "vg": "X", "sp": "S"}, "desc": "None of the five has a published clinical trial on a finished product. Trust comes from certifications (B Corp, Clean Label Project, Vegan Society), contaminant testing, cause programmes, clinician founders or ingredient-supplier studies.", "exceptions": "Free Soul (Informed Sport page exists, SKUs unconfirmed; relies on customer surveys); Vida Glow (no certifications found; relies on brand-run, unpublished studies and celebrity)."}, {"id": "P9", "group": "Shared", "name": "Founder-controlled, capital-light growth", "count": 3, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "U", "sp": "X"}, "desc": "Brands grew on founder money, an angel or debt rather than venture equity: MaryRuth's bootstrapped to about $100M, took PE in 2021 and bought it back with debt in 2024; Free Soul self-funded with one angel round; Novomins used £70k savings plus Lloyds debt.", "exceptions": "SmartyPants (crowdfunding, then PE, then sale to Unilever). Vida Glow (funding not found). Profitable founders talk about bootstrapping more, so the trait may be over-reported among winners."}, {"id": "W1", "group": "Warning", "name": "Range sprawl into trend SKUs", "count": 5, "conf": "Medium (common) / Early signal (harm)", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "S", "sp": "S"}, "desc": "300+ SKUs vs 'make wellness simple' (MaryRuth's); Sculpt and 'glow' vs 'how women feel, not how they look' (Free Soul); NAD+, shilajit and libido vs 'established science' (Novomins); acne, sleep, topicals and a tea collaboration vs 'the marine collagen brand' (Vida Glow); sleep, fiber and pet SKUs vs 'all-in-one' (SmartyPants).", "exceptions": "No commercial damage documented yet for any brand. At SmartyPants, sprawl coincides with a post-acquisition period in which it is not named among Unilever's growth leaders (weak signal)."}, {"id": "W2", "group": "Warning", "name": "Claims escalate beyond the evidence", "count": 5, "conf": "Medium (common) / Early signal (consequences)", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "S", "sp": "S"}, "desc": "'Clinically shown' hair growth on an ingredient-supplier study plus 10,000 mcg biotin (MaryRuth's); survey percentages and 'hormone balance' (Free Soul); disease-adjacent naming such as 'Endo' (Novomins); 'clinically proven' and 'world's No.1' without published data (Vida Glow); 'Complete' and fiber claims (SmartyPants).", "exceptions": "SmartyPants faces two class actions (2021 'Complete', 2025 fiber). MaryRuth's had a 2021 infant probiotic recall (safety, not claims). For the other three, no ASA, FTC or court action was found."}, {"id": "W3", "group": "Warning", "name": "'Premium' story vs deep discounting", "count": 3, "conf": "Medium (occurs) / effect not shown", "cells": {"mr": "S", "fs": "X", "nv": "S", "vg": "X", "sp": "S"}, "desc": "List prices say premium while the price paid is often value-tier: MaryRuth's (50% off list on Amazon), SmartyPants (120 ct for $5-9 with coupons), Novomins (H&B 15-20% multibuys).", "exceptions": "Vida Glow (only 15% subscription discount found); Free Soul (25% first-order affiliate offers, not persistent). No measured effect on margin; MaryRuth's still reports about 20% EBITDA (Forbes estimate)."}, {"id": "W4", "group": "Warning", "name": "'Global' story vs unmanaged international", "count": 4, "conf": "Medium", "cells": {"mr": "S", "fs": "S", "nv": "S", "vg": "X", "sp": "S"}, "desc": "MaryRuth's (grey-market EU/UK), Free Soul ('4 million women globally', no US), Novomins (US push announced c. 2022, by 2026 only a third-party Amazon listing), SmartyPants (no EU/UK under Unilever).", "exceptions": "Vida Glow (official presence in AU, US, UK; EU light)."}], "routes": [{"id": "P10", "name": "Deep home market vs early internationalisation", "text": "Three brands scaled almost entirely in one home market and left international sales unmanaged: MaryRuth's (US), SmartyPants (US), Free Soul (UK plus Ireland). Two expanded early through a specific partner or demand pocket: Novomins (Ireland, Australia, Germany via Chemist Warehouse and online pharmacy), Vida Glow (China demand, then US and UK prestige).", "conf": "Medium (home market) / Early signal (international)"}, {"id": "P11", "name": "Retail destination differs: mass/club, pharmacy or prestige beauty", "text": "The online-first start is shared, but the retail destination matches price tier and story: mass and club for a family staple (MaryRuth's, SmartyPants, Free Soul's grocery listings), pharmacy and health-store fixtures for a need-state gummy block (Novomins), prestige beauty for a US$50 sachet sold as beauty (Vida Glow).", "conf": "Medium (mass) / Early signal (pharmacy, prestige)"}, {"id": "P12", "name": "Success by exit vs founder-retained scale", "text": "SmartyPants succeeded by selling to a strategic buyer; MaryRuth's, Free Soul and Novomins by growing while keeping control. Vida Glow is unknown.", "conf": "Early signal (exit route)"}], "models": [{"name": "Marketplace-and-creator mass engine", "how": "Visibly different format or positioning, proven on Amazon and/or DTC, scaled through creators and social commerce, then turned into mass, grocery and club listings.", "brands": "MaryRuth's (US), Free Soul (UK), SmartyPants (US, pre-TikTok version with Amazon and mom influencers)", "keys": ["mr", "fs", "sp"], "conf": "Medium (3 brands)"}, {"name": "Pharmacy-shelf need-state block", "how": "One format (gummy) across many need-state SKUs at one price point, giving retailers a ready-made fixture block; clinician founders and B Corp reassure pharmacy buyers; growth funded by debt and retail partners across countries.", "brands": "Novomins (partly SmartyPants in its life-stage mass listings)", "keys": ["nv"], "conf": "Early signal (1 brand)"}, {"name": "Prestige-beauty placement", "how": "Supplement sold as beauty: single-ingredient hero, giftable sachets, celebrity launch per market, beauty-retail doors at prestige prices.", "brands": "Vida Glow", "keys": ["vg"], "conf": "Early signal (1 brand)"}, {"name": "Strategic exit", "how": "Staged capital (crowdfund, PE, growth equity) matched to staged channels, building a scaled US asset for a strategic buyer.", "brands": "SmartyPants", "keys": ["sp"], "conf": "Early signal (1 brand)"}], "alternatives": [["Timing", "TikTok Shop launched in the UK (2021) and US (late 2023) with heavy platform support for early brands; MaryRuth's and Free Soul were early and visible. SmartyPants rode the 2010-2020 rise of gummies and clean label. Vida Glow launched in 2014 as ingestible collagen was emerging, and caught Chinese cross-border demand in 2017. Each brand's main channel or format was growing fast when it entered."], ["Category growth", "Gummy supplements grew 7.9% in 2025 (New Hope, US data, cited in the Novomins report); collagen, greens and women's health have been fast-growing need-states. Without Spate category data, brand share gain cannot be separated from category growth for any of the five."], ["Funding", "MaryRuth's took PE in 2021 at the point it entered mass retail; SmartyPants raised repeatedly before 30,000 doors; Novomins used Lloyds debt for international retail. Capital access, not strategy alone, may explain the speed of retail rollout."], ["Founder audience and networks", "MaryRuth's started with the founder's coaching clients; Vida Glow used the founders' celebrity and fashion network (Rita Ora, later a Typebea co-founder); Free Soul used diaspora and business press. These are hard to copy and could explain early traction as well as any strategy."], ["Measurement", "The success evidence is uneven: Forbes estimates (MaryRuth's), company-stated and press-ranked figures (Free Soul, Novomins), unverified unit claims (Vida Glow) and an undisclosed exit price (SmartyPants). Some 'successes' may be smaller than presented."]], "implications": [["Choose a format or hero that proves the promise by itself.", "If the product needs a paragraph to explain why it is different, it will not travel on TikTok, Amazon or a retail shelf (P2). Free Soul shows the alternative is a sharp audience position, but it still needed a viral hero (Mango Greens) to break out."], ["Plan the online-proof-then-retail sequence on purpose.", "Collect reviews, velocity and repeat data in DTC and Amazon first, then take them to retail buyers (P3, P4). Design trial-size sachets or small packs for retail entry price points, as Free Soul and Vida Glow did (early signal)."], ["Match the retail destination to price and story.", "Mass and club for a family staple, pharmacy for need-state blocks, prestige beauty for a beauty-priced ingestible (P11). Mixing them (Vida Glow at Harrods and at Nasty Gal) creates price and positioning tension."], ["Build the trust stack early.", "With no finished-product clinical trial, certifications, testing and clinician or educator voices did the reassuring for three brands (P8). For a nutricosmetics launch, a finished-product study would be a real differentiator, since none of the five has one."], ["Write claims for the strictest target market from day one.", "All five brands' growth claims would need rework under EFSA/GB rules (W2). A brand planning UK/EU sales should build heroes around authorised nutrient claims (e.g. biotin, zinc, vitamin C for skin, hair and collagen formation) rather than adapting US claims later."], ["Set rules for line extension.", "Every brand drifted into trend SKUs (W1). A simple test: does the new SKU make the founding promise more tangible, or does it borrow a trend? Beauty extensions worked commercially for four brands (P7) but carry the highest claim risk."], ["Treat social commerce as a time-limited window.", "Early entry to a new platform (TikTok Shop) gave outsized reach to two brands; that advantage shrinks as the platform fills. A new brand should look for the next under-served channel rather than assume the same result."]], "gaps_evidence": ["All five brand reports rest on search-result snippets because direct fetches were blocked. Rerunning brand-analyst with full page access (brand sites, Forbes, Lloyds, The Grocer, Sunday Times 100, Unilever releases) would let several patterns move from medium to high confidence. Priorities: Free Soul and Novomins revenue (Companies House, Sunday Times 100 entries), Vida Glow revenue and ownership (ASIC), SmartyPants post-2020 performance.", "Channel revenue mix (Amazon vs DTC vs retail vs TikTok Shop) was not found for any brand. This is the single biggest gap for P4 and P5.", "Novomins social and creator activity was not found; checking it would confirm or break P5."], "gaps_brands": [["Care/of", "US personalised vitamin packs, Bayer-owned; reported closed in 2024: DTC subscription model with no retail-first proof; a test of P3."], ["Sugarbear", "US influencer-led hair gummies: celebrity and influencer demand without a trust stack; a test of P5 and P8."], ["Goli Nutrition", "US ACV gummies, viral c. 2020, reported financial difficulties later: a format-led hero that rode a trend; a test of P2 and of the timing explanation."], ["SmartyPants after 2020", "Already in the set: a possible stall under corporate ownership, which could be tested with Unilever segment data and Spate brand search."], ["Comparable survivors", "Bears With Benefits and Vitabiotics gummies (UK pharmacy model, alongside Novomins), Absolute Collagen or The Beauty Chef (prestige ingestible beauty, alongside Vida Glow), Women's Best (women-first, alongside Free Soul), Olly (US gummy mass, alongside SmartyPants)."]], "gaps_brands_note": "These are candidates from general category knowledge, not from the brand reports; their status should be checked by a brand-analyst run before use.", "spate": [["\"gummy vitamins\" / \"gummies supplements\"", "US, UK, AU", "Category tailwind behind SmartyPants and Novomins (P2, timing)"], ["\"liquid vitamins\" / \"liquid multivitamin\"", "US, UK", "Whether MaryRuth's grew with or ahead of its format"], ["\"marine collagen\" / \"collagen supplement\" / \"liquid collagen\" / \"collagen sachets\"", "US, UK, AU", "Collagen tailwind for Vida Glow, Novomins and Free Soul; format shifts"], ["\"greens powder\" / \"mango greens\"", "UK, US", "Whether Free Soul rode or created the greens wave"], ["\"supplements for women\" / \"women's multivitamin\" / \"perimenopause supplements\"", "UK, US", "Size and growth of the women's need-state all five target (P6)"], ["\"hair growth supplement\" / \"biotin\" / \"hair vitamins\"", "US, UK", "The beauty-extension pattern (P7)"], ["\"creatine for women\" / \"magnesium gummies\" / \"magnesium glycinate\"", "UK, US", "Trend SKUs and the timing of entry"], ["\"kids vitamins\" / \"prenatal vitamins\"", "US, UK", "Life-stage demand behind MaryRuth's and SmartyPants"], ["Brand-name searches for all five brands, side by side", "US, UK, AU, DE", "Relative brand trajectories; whether TikTok Shop events, retail listings and celebrity launches lifted search; whether SmartyPants stalled after 2020"]], "sources": [["reports/patterns/supplement-brands-2026-10-06.md", "Cross-brand pattern report (brand-pattern-finder), run 2026-10-06. The source of every finding in this document."], ["reports/brands/maryruths.md", "MaryRuth's brand strategy report, 2026-10-06. Scorecard and timeline dates."], ["reports/brands/freesoul.md", "Free Soul brand strategy report, 2026-10-06. Scorecard and timeline dates."], ["reports/brands/novomins.md", "Novomins brand strategy report, 2026-10-06. Scorecard and timeline dates."], ["reports/brands/vida-glow.md", "Vida Glow brand strategy report, 2026-10-06. Scorecard and timeline dates."], ["reports/brands/smartypants.md", "SmartyPants brand strategy report, 2026-10-06. Scorecard and timeline dates."]], "sources_note": "Each brand report lists its own primary sources (for example Forbes, BusinessWire, TikTok Newsroom, Lloyds, The Grocer, NutraIngredients, Unilever and Morgan Stanley releases, retailer listings), all accessed 2026-10-06, mostly through search-result extracts. No Spate export was in inputs/category/ and Revuze was not used. No new research was done for these deliverables.", "caveats": [["Evidence caveat", "All five brand reports were built from search-result snippets, because the network blocked direct page fetches (brand sites, Forbes, Lloyds, The Grocer, founder interviews and others). Exact figures, dates and wording have not been checked against full pages. Several success figures are self-reported (Vida Glow units, Novomins velocity, Free Soul revenue) or third-party estimates (MaryRuth's revenue from Forbes, SmartyPants revenue from databases). For this reason no pattern is rated higher than medium, even where all five brands support it."], ["Survivorship caveat", "All five brands are successes by their own measure. With no failed or stalled brands in the set, every shared trait is a correlation, not a proven cause."]], "timeline": {"mr": [[2014.75, "Fall 2014 (or 2015)", "First 90 bottles of Liquid Morning Multivitamin, sold in the practice and on Amazon", "online", "REPORTED"], [2021.3, "April 2021", "Whole Foods launch; Whole Foods Rookie Supplier of the Year", "retail", "REPORTED"], [2021.5, "2021", "800+ Target stores", "retail", "REPORTED"], [2021.6, "5 Aug 2021", "Butterfly (PE) invests; founder keeps a significant stake", "capital", "CONFIRMED"], [2024.6, "15 Aug 2024", "Butterfly sells most of its stake back to the founder family", "capital", "CONFIRMED"], [2025.05, "Jan 2025", "#4 on TikTok Shop US, $5.3M monthly sales; Hair Growth liquid the #2 product", "social", "REPORTED"], [2026.65, "27 Aug 2026", "Forbes: about $600M TTM revenue, at least $1.5B value", "marker", "REPORTED (estimate)"]], "fs": [[2017.0, "2017 (brand says; sources say 2016-2018)", "Founded by Rohini and Arjun Sofat after a family health scare; self-funded; gym sampling", "online", "CONFIRMED / conflict noted"], [2021.0, "2021", "Seven-figure investment from Sonny Arora (angel), who joins the board", "capital", "REPORTED"], [2024.8, "22-25 Oct 2024", "First TikTok Shop Super Brand Day", "social", "CONFIRMED"], [2024.5, "2024-25 (date not found)", "Wider UK retail: Boots, Tesco, Superdrug, Sainsbury's, H&B; greens and CreaGlow in Ocado and Waitrose", "retail", "REPORTED"], [2026.02, "5-11 Jan 2026", "Second Super Brand Day; Sculpt protein launched first on TikTok Shop", "social", "CONFIRMED"], [2026.3, "Year to Apr 2026", "£42m sales; 10th in Sunday Times 100", "marker", "REPORTED"]], "nv": [[2020.0, "2020", "Founded with £70k of savings; DTC launch", "online", "REPORTED"], [2022.9, "24 Nov 2022", "Ireland launch: full range in Chemist Warehouse IE", "retail", "REPORTED"], [2023.4, "May 2023", "B Corp certified (score 88.1)", "marker", "REPORTED"], [2024.0, "c. 2023-2025", "UK listings at Boots, Superdrug, H&B (exact dates not found)", "retail", "REPORTED"], [2025.05, "c. Jan 2025", "Chemist Warehouse Australia listings; 550 stores", "retail", "REPORTED"], [2026.45, "Jun 2026", "Sunday Times 100, #27", "marker", "REPORTED"]], "vg": [[2014.0, "2014", "Launched with Natural Marine Collagen (Sydney, DTC)", "online", "REPORTED"], [2015.0, "~2014-2016", "Wholesale to Australian health-food stores begins", "retail", "REPORTED"], [2017.0, "2017", "Breakthrough with Chinese consumers; brand 'goes global'", "marker", "REPORTED"], [2021.4, "May 2021", "'Vida Glow 2.0' global rebrand and launch, Sydney (Rita Ora et al.)", "marker", "CONFIRMED / REPORTED"], [2022.15, "23 Feb 2022", "US launch event; US retail at Revolve, Shen Beauty, Carbon Beauty", "retail", "REPORTED"], [2022.85, "Nov 2022", "One-month pop-up at Harrods Knightsbridge", "retail", "REPORTED"]], "sp": [[2010.8, "Fall 2010", "First products on sale", "online", "REPORTED"], [2013.6, "Aug 2013", "Raises $2.59M on CircleUp", "capital", "REPORTED"], [2015.55, "Jul 2015", "North Castle Partners invests", "capital", "REPORTED"], [2018.1, "Feb 2018", "30,000+ stores incl. Target, Walmart, Costco, Whole Foods", "retail", "REPORTED"], [2020.9, "25 Nov / 23 Dec 2020", "Unilever announces and completes acquisition", "capital", "CONFIRMED"], [2021.55, "Jul 2021", "'Complete' class action filed", "marker", "REPORTED"], [2023.4, "5 Jun 2023", "Gelatin-free multis at Walmart, $13.98", "retail", "CONFIRMED"], [2025.95, "Dec 2025", "Fiber class action", "marker", "REPORTED"]]}, "event_types": {"online": "Online launch", "retail": "Physical retail", "social": "Social commerce", "capital": "Funding / ownership", "marker": "Other milestone"}, "channel_cols": ["DTC site", "Amazon", "TikTok Shop", "Natural / health store", "Mass, grocery, club", "Pharmacy", "Prestige beauty", "Official international"], "channels": {"mr": ["Y", "F", "Y", "Y", "Y", "Y", "", "N"], "fs": ["F", "Y", "Y", "Y", "Y", "Y", "", "Y"], "nv": ["F", "F", "", "Y", "", "Y", "", "Y"], "vg": ["F", "", "", "Y", "", "", "Y", "Y"], "sp": ["F", "F", "", "Y", "Y", "", "", "N"]}, "channel_notes": {"mr": "Started in the founder's coaching practice and on Amazon; CVS for pharmacy; EU/UK grey-market only.", "fs": "H&B (health store), Boots and Superdrug (pharmacy), Tesco, Sainsbury's, Waitrose, Ocado (grocery); international = Ireland; no US.", "nv": "H&B (health store); Boots, Superdrug and Chemist Warehouse (pharmacy); international = Ireland, Australia, DE/AT online; US thin.", "vg": "AU health-food wholesale; Revolve, Neiman Marcus, Harrods, Space NK, Cult Beauty, Sephora; official in AU, US, UK; EU light. Amazon presence unclear.", "sp": "Whole Foods and Sprouts (natural); Target, Walmart, Costco (30,000+ doors by 2018); no EU/UK."}};
+const BRANDS = D.brand_keys;
+const BCOL = {mr:'var(--b1)',fs:'var(--b2)',nv:'var(--b3)',vg:'var(--b4)',sp:'var(--b5)'};
+const BHEX = {mr:'#2a78d6',fs:'#eb6834',nv:'#1baf7a',vg:'#eda100',sp:'#e87ba4'};
+const TCOL = {online:'#2a78d6',retail:'#eb6834',social:'#1baf7a',capital:'#4a3aa7',marker:'#8a8984'};
+const bn = k => D.brand_meta[k].name;
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function confClass(c){c=c.toLowerCase(); return c.startsWith('caveat')?'caveat':c.startsWith('early')?'early':'medium';}
+const tag = c => `<span class="tag ${confClass(c)}">${esc(c)}</span>`;
+const evtag = c => `<span class="tag ev">${esc(c)}</span>`;
+const tip = document.getElementById('tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.display='block';moveTip(e);}
+function moveTip(e){const x=e.clientX+14,y=e.clientY+14;const w=tip.offsetWidth,h=tip.offsetHeight;
+  tip.style.left=Math.min(x,innerWidth-w-8)+'px';tip.style.top=Math.min(y,innerHeight-h-8)+'px';}
+function hideTip(){tip.style.display='none';}
+function bindTips(root){root.querySelectorAll('[data-tip]').forEach(el=>{
+  el.addEventListener('mouseenter',e=>showTip(e,el.dataset.tip));el.addEventListener('mousemove',moveTip);el.addEventListener('mouseleave',hideTip);
+  el.addEventListener('focus',e=>{const r=el.getBoundingClientRect();showTip({clientX:r.right,clientY:r.top},el.dataset.tip)});el.addEventListener('blur',hideTip);});}
+function tabs(id,items,onSel,sel){
+  return `<div class="tabs" role="tablist" id="${id}">`+items.map(([k,l])=>`<button role="tab" data-k="${k}" aria-selected="${k===sel}">${l}</button>`).join('')+`</div>`;}
+function wireTabs(id,onSel){const t=document.getElementById(id);t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  t.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b));onSel(b.dataset.k);});}
+const brandTabs = (id,sel,all) => tabs(id,(all?[['all','All brands']]:[]).concat(BRANDS.map(k=>[k,`<span class="swatch" style="background:${BHEX[k]}"></span>${bn(k)}`])),null,sel);
+
+/* ---------------- slides ---------------- */
+const S = [];
+// 1 Title
+S.push({t:'Title', h:`<div class="title-wrap">
+ <p class="kicker">Cross-brand pattern report &middot; ${esc(D.run_date)}</p>
+ <h1>${esc(D.title)}</h1>
+ <p class="big" style="max-width:46ch;font-weight:600">A founder problem, a format that shows the promise, online proof, then retail. And the same two warning signs in every brand.</p>
+ <div class="brandrow">${BRANDS.map(k=>`<span class="brandchip"><span class="swatch" style="background:${BHEX[k]}"></span>${bn(k)} &middot; ${D.brand_meta[k].home}, ${D.brand_meta[k].founded}</span>`).join('')}</div>
+ <p class="meta small">Supplements, wellness and nutricosmetics. Confidence tags: ${tag('Medium')} several brands support it &nbsp; ${tag('Early signal')} one or two brands &nbsp; ${tag('Caveat')} limits. Dated facts keep the brand reports' tags: ${evtag('CONFIRMED')} ${evtag('REPORTED')} ${evtag('INFERRED')} ${evtag('USER-SUPPLIED')}</p>
+ <p class="small">Use &larr; &rarr; keys or the buttons below. Press M for the slide menu.</p></div>`});
+
+// 2 Key findings
+S.push({t:'Key findings', h:`<p class="kicker">Key findings</p>
+ <h1 class="lead">Five successful brands share one path and the same two warning signs, but the evidence supports correlation, not cause.</h1>
+ <p class="sub">Click a finding to see the evidence behind it.</p>
+ <div id="kfs">${D.key_findings.map((k,i)=>{const cls=k.conf==='Caveat'?'neutral':(k.refs==='W1, W2'?'warn':'');
+  return `<button class="kf ${cls}" aria-expanded="false"><div><div class="stat">${esc(k.stat)}</div><div class="statl">${esc(k.stat_label)}</div></div>
+  <div><div class="hl">${esc(k.headline)} ${tag(k.conf)}</div></div><div class="chev" aria-hidden="true">&#8250;</div>
+  <div class="detail">${esc(k.detail)} <span class="small">(${esc(k.refs)})</span></div></button>`}).join('')}</div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){el.querySelectorAll('.kf').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true')));}});
+
+// 3 Scorecard
+S.push({t:'Scorecard', h:`<p class="kicker">Scorecard</p>
+ <h1 class="lead">Every brand scores 4-5 on story clarity; story-product fit is the lowest or joint-lowest score for four of the five.</h1>
+ ${tabs('scTabs',[['all','All criteria (heat map)']].concat(D.criteria.map((c,i)=>[String(i),c])),null,'all')}
+ <div id="scView"></div>
+ <p class="source">${esc(D.source_scores)}. Hover a cell or bar for the value.</p>`,
+ init(el){const v=el.querySelector('#scView');
+  const avg=i=>(BRANDS.reduce((a,k)=>a+D.scores[k][i],0)/5).toFixed(1);
+  const heat=()=>{const col=x=>({5:['#2a78d6','#fff'],4:['#9ec5f4','#1f2a44'],3.5:['#cde2fb','#1f2a44'],3:['#e8f1fc','#1f2a44']}[x]||['#fff','#1f2a44']);
+   v.innerHTML=`<table class="hm"><thead><tr><th></th>${D.criteria.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${BRANDS.map(k=>`<tr><th class="rowh"><span class="swatch" style="background:${BHEX[k]}"></span>${bn(k)}</th>${D.scores[k].map((s,i)=>{const [bg,fg]=col(s);return `<td tabindex="0" style="background:${bg};color:${fg}" data-tip="<b>${esc(bn(k))}</b> &middot; ${D.criteria[i]}: <b>${s}</b> / 5">${s}</td>`}).join('')}</tr>`).join('')}
+   <tr><th class="rowh" style="color:var(--text2);font-weight:600">Average</th>${D.criteria.map((c,i)=>`<td style="background:#f6f6f4;color:#52514e">${avg(i)}</td>`).join('')}</tr></tbody></table>
+   <p class="small">Darker = higher score. Average row computed from the five scores shown.</p>`;bindTips(v);};
+  const bars=i=>{i=+i;const W=900,rowH=54,H=BRANDS.length*rowH+50,L=150,R=40,x=s=>L+(W-L-R)*s/5;
+   let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${D.criteria[i]} scores by brand">`;
+   for(let t=0;t<=5;t++)g+=`<line x1="${x(t)}" x2="${x(t)}" y1="0" y2="${H-40}" stroke="#e6e5e1"/><text x="${x(t)}" y="${H-18}" font-size="15" fill="#52514e" text-anchor="middle">${t}</text>`;
+   g+=`<text x="${(L+W-R)/2}" y="${H+4}" font-size="15" fill="#52514e" text-anchor="middle">Score (1 = weak, 5 = strong)</text>`;
+   BRANDS.forEach((k,j)=>{const s=D.scores[k][i],y=j*rowH+8;
+    g+=`<text x="${L-12}" y="${y+24}" font-size="17" fill="#1f2a44" text-anchor="end">${esc(bn(k))}</text>
+     <g tabindex="0" data-tip="<b>${esc(bn(k))}</b><br>${D.criteria[i]}: <b>${s}</b> / 5"><rect x="${L}" y="${y}" width="${x(s)-L}" height="${rowH-18}" rx="4" fill="${BHEX[k]}"/><rect x="${L}" y="${y-6}" width="${W-L-R}" height="${rowH-6}" fill="transparent"/></g>
+     <text x="${x(s)+8}" y="${y+24}" font-size="16" fill="#52514e">${s}</text>`;});
+   v.innerHTML=`<p class="small">${D.criteria[i]}: average ${avg(i)} across the five brands.</p><div class="chart" style="max-width:900px">${g}</svg></div>`;bindTips(v);};
+  heat();wireTabs('scTabs',k=>k==='all'?heat():bars(k));}});
+
+// 4 Story
+S.push({t:'Story', h:`<p class="kicker">Story</p>
+ <h1 class="lead">Every brand opens with a founder's personal problem, and every brand sells mainly to women buying for themselves or their families.</h1>
+ ${brandTabs('stTabs','mr')}
+ <div class="two"><div class="panel" id="stView"></div>
+ <div><div class="card"><h3>P1. Founder's problem is the origin story ${tag('Medium')}</h3><p>5 of 5 brands. Story clarity scores 4-5 for all five, the highest-scoring criterion. Near-universal in the category, including in brands that fail, so probably necessary rather than distinctive.</p></div>
+ <div class="card" style="margin-top:.8em"><h3>P6. Women are the buyer ${tag('Medium')}</h3><p>5 of 5 brands. Ranges are organised by women's life stages and need-states, which maps onto retail fixtures. Women are the majority supplement buyer, so this is close to a category trait.</p></div></div></div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){const v=el.querySelector('#stView');const show=k=>{const m=D.matrix[k];v.innerHTML=`<h3><span class="swatch" style="background:${BHEX[k]}"></span>${esc(m.label)}</h3>
+  <div class="kv"><b>Story type</b><span>${esc(m.story)}</span></div><div class="kv"><b>Story clarity score</b><span class="big">${D.scores[k][0]} / 5</span></div>`;};show('mr');wireTabs('stTabs',show);}});
+
+// 5 Product
+S.push({t:'Product', h:`<p class="kicker">Product</p>
+ <h1 class="lead">The clearest shared lever is a format or hero that makes the founding promise visible at a glance.</h1>
+ ${brandTabs('prTabs','mr')}
+ <div class="two"><div class="panel" id="prView"></div>
+ <div><div class="card"><h3>P2. The format proves the promise ${tag('Medium')}</h3><p>4 of 5 brands: liquid for 'no pills', gummy for 'kids will take it' and 'easy to remember', a single 100%-collagen sachet. It works in a 15-second video, an Amazon thumbnail or a shelf facing. Exception: Free Soul differentiates by audience, though it still needed a viral hero (Mango Greens).</p></div>
+ <div class="card" style="margin-top:.8em"><h3>P7. Beauty-from-within as growth extension ${tag('Medium')}</h3><p>4 of 5 brands. MaryRuth's Hair Growth liquid was the #2 TikTok Shop product in Jan 2025; Novomins Collagen gummies are a stated bestseller. Not SmartyPants. Beauty claims carry the highest claim risk.</p></div></div></div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){const v=el.querySelector('#prView');const p2={mr:'Liquid: "no pills"',fs:'Exception: differentiates by audience',nv:'Gummy: "easy to remember" (no single hero; 40+ SKUs)',vg:'Single 100%-collagen sachet',sp:'Gummy: "kids will take it"'};
+  const show=k=>{const m=D.matrix[k];v.innerHTML=`<h3><span class="swatch" style="background:${BHEX[k]}"></span>${esc(m.label)}</h3>
+  <div class="kv"><b>Hero product and format</b><span>${esc(m.hero)}</span></div>
+  <div class="kv"><b>How the format shows the promise (P2)</b><span>${esc(p2[k])}</span></div>
+  <div class="kv"><b>Price tier</b><span>${esc(m.price)}</span></div>
+  <div class="kv"><b>Story-product fit score</b><span class="big">${D.scores[k][1]} / 5</span></div>`;};show('mr');wireTabs('prTabs',show);}});
+
+// 6 Timeline
+S.push({t:'Timeline', h:`<p class="kicker">Story over time</p>
+ <h1 class="lead">Major retail came years after the online launch for four of the five brands; Vida Glow sold through wholesale almost from the start.</h1>
+ ${brandTabs('tlTabs','all',true)}
+ <div class="legend">${Object.entries(D.event_types).map(([k,l])=>`<span><span class="swatch" style="background:${TCOL[k]}"></span>${l}</span>`).join('')}</div>
+ <div class="chart" id="tlChart" style="max-width:min(100%,calc((100vh - 400px) * 3.2))"></div>
+ <div class="panel" id="tlDetail" style="margin-top:.6em;min-height:4.2em"><span class="small">Click any milestone for the date, the event and its evidence tag.</span></div>
+ <p class="source">${esc(D.source_timeline)}. P3 (demand proven online first) ${tag('Medium')}</p>`,
+ init(el){const c=el.querySelector('#tlChart'),det=el.querySelector('#tlDetail');
+  const draw=f=>{const keys=f==='all'?BRANDS:[f];const W=1000,L=120,R=20,rowH=f==='all'?50:110,H=keys.length*rowH+44,x0=2010,x1=2027,x=y=>L+(W-L-R)*(y-x0)/(x1-x0);
+   let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Brand milestone timeline">`;
+   for(let y=2010;y<=2026;y+=2)g+=`<line x1="${x(y)}" x2="${x(y)}" y1="0" y2="${H-34}" stroke="#eeede9"/><text x="${x(y)}" y="${H-12}" font-size="14" fill="#52514e" text-anchor="middle">${y}</text>`;
+   keys.forEach((k,r)=>{const cy=r*rowH+rowH/2,ev=D.timeline[k];const xs=ev.map(e=>e[0]);
+    g+=`<text x="${L-12}" y="${cy+5}" font-size="16" fill="#1f2a44" text-anchor="end">${esc(bn(k))}</text><line x1="${x(Math.min(...xs))}" x2="${x(2026.8)}" y1="${cy}" y2="${cy}" stroke="#e2e1dc" stroke-width="3"/>`;
+    ev.forEach((e,i)=>{const [yr,when,what,typ,tg]=e;const px=x(yr);const sz=f==='all'?9:12;
+     g+=`<g class="ms" tabindex="0" role="button" data-k="${k}" data-i="${i}" style="cursor:pointer" data-tip="<b>${esc(when)}</b> &middot; ${esc(bn(k))}<br>${esc(what)}"><circle cx="${px}" cy="${cy}" r="${sz+8}" fill="transparent"/><circle cx="${px}" cy="${cy}" r="${sz}" fill="${TCOL[typ]}" stroke="#fff" stroke-width="2"/></g>`;
+     if(f!=='all'){const up=i%2===0;g+=`<text x="${px}" y="${cy+(up?-20:30)}" font-size="12.5" fill="#52514e" text-anchor="middle">${esc(when.split(' (')[0])}</text>`;}});});
+   c.innerHTML=g+'</svg>';bindTips(c);
+   c.querySelectorAll('.ms').forEach(m=>{const act=()=>{const e=D.timeline[m.dataset.k][+m.dataset.i];c.querySelectorAll('.ms circle:last-child').forEach(z=>z.setAttribute('stroke','#fff'));m.querySelector('circle:last-child').setAttribute('stroke','#1f2a44');
+     det.innerHTML=`<div class="kv"><b>${esc(bn(m.dataset.k))} &middot; ${esc(D.event_types[e[3]])}</b><span class="big">${esc(e[1])}</span></div><div>${esc(e[2])} ${evtag(e[4])}</div>`;};
+     m.addEventListener('click',act);m.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();act();}});});};
+  const reset=()=>det.innerHTML='<span class="small">Click any milestone for the date, the event and its evidence tag.</span>';
+  draw('all');wireTabs('tlTabs',f=>{draw(f);reset();});}});
+
+// 7 Marketing channels
+S.push({t:'Marketing channels', h:`<p class="kicker">Marketing channels</p>
+ <h1 class="lead">Creators and social commerce turned the founder story into sales for three brands; the other two rely on press, reviews or celebrities.</h1>
+ ${brandTabs('mkTabs','mr')}
+ <div class="two"><div class="panel" id="mkView"></div>
+ <div><div class="card"><h3>P5. Creators and social commerce ${tag('Medium')}</h3><p>MaryRuth's (TikTok Shop #4 seller, Jan 2025; 1,000+ creators), Free Soul (two Super Brand Days), SmartyPants (mom-influencer programme, 26M+ reach). Timing explains part: TikTok Shop opened in the UK in 2021 and the US in late 2023.</p></div>
+ <div class="card" style="margin-top:.8em"><h3>P8. A trust stack replaces clinical trials ${tag('Medium')}</h3><p>None of the five has a published clinical trial on a finished product. Certifications, testing, cause programmes and clinician founders reassure buyers at MaryRuth's, Novomins and SmartyPants.</p></div></div></div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){const v=el.querySelector('#mkView');const lab={S:'Yes',X:'No (named exception)',U:'Not found / unconfirmed'};
+  const pat=id=>D.patterns.find(p=>p.id===id);
+  const show=k=>{const m=D.matrix[k];v.innerHTML=`<h3><span class="swatch" style="background:${BHEX[k]}"></span>${esc(m.label)}</h3>
+  <div class="kv"><b>Lead marketing channel</b><span>${esc(m.marketing)}</span></div>
+  <div class="kv"><b>Fits P5 (creators / social commerce)?</b><span>${lab[pat('P5').cells[k]]}</span></div>
+  <div class="kv"><b>Fits P8 (trust stack)?</b><span>${lab[pat('P8').cells[k]]}</span></div>
+  <div class="kv"><b>Marketing-channel fit score</b><span class="big">${D.scores[k][2]} / 5</span></div>`;};show('mr');wireTabs('mkTabs',show);}});
+
+// 8 Sales channels
+S.push({t:'Sales channels', h:`<p class="kicker">Sales channels</p>
+ <h1 class="lead">All five started online, then chose different retail destinations: mass and club, pharmacy, or prestige beauty.</h1>
+ <p class="sub">Click a channel heading to highlight the brands listed in it. Click a brand to see its expansion sequence.</p>
+ <div class="two"><div><table class="simple chgrid" id="chg"></table>
+ <p class="small">First = first sales channel. &ndash; = not listed in the report (not proof of absence). No = stated as absent or unofficial.</p></div>
+ <div class="panel" id="seqView"></div></div>
+ <div class="three" style="margin-top:.4em">${D.routes.map(r=>`<div class="card" style="padding:.6em 1em"><h3>${r.id}. ${esc(r.name)}</h3><p>${tag(r.conf)}</p></div>`).join('')}</div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){const t=el.querySelector('#chg'),sv=el.querySelector('#seqView');
+  t.innerHTML=`<thead><tr><th>Brand</th>${D.channel_cols.map((c,i)=>`<th class="colsel" data-c="${i}" tabindex="0">${c}</th>`).join('')}</tr></thead><tbody>${BRANDS.map(k=>`<tr data-k="${k}" style="cursor:pointer"><td style="text-align:left;font-weight:700;white-space:nowrap"><span class="swatch" style="background:${BHEX[k]}"></span>${bn(k)}</td>${D.channels[k].map((v,i)=>{const m={F:['first','First'],Y:['yes','Yes'],N:['no','No'],'':['nl','&ndash;']}[v];return `<td class="${m[0]}" data-tip="<b>${esc(bn(k))}</b> &middot; ${D.channel_cols[i]}: ${m[1]}<br>${esc(D.channel_notes[k])}">${m[1]}</td>`}).join('')}</tr>`).join('')}</tbody>`;
+  bindTips(t);let cur=null;
+  t.querySelectorAll('th.colsel').forEach(th=>{const f=()=>{const c=+th.dataset.c;cur=cur===c?null:c;t.querySelectorAll('th.colsel').forEach(h=>h.classList.toggle('on',+h.dataset.c===cur));
+   t.querySelectorAll('tbody tr').forEach(tr=>{const v=D.channels[tr.dataset.k][c];tr.classList.toggle('dim',cur!==null&&!(v==='F'||v==='Y'));});};th.addEventListener('click',f);th.addEventListener('keydown',e=>{if(e.key==='Enter')f();});});
+  const show=k=>{const m=D.matrix[k];sv.innerHTML=`<h3><span class="swatch" style="background:${BHEX[k]}"></span>${esc(m.label)}: channel sequence</h3><div class="steps">${m.sequence.map((s,i)=>`${i?'<span class="arrow">&rarr;</span>':''}<div class="step"><span class="n">Step ${i+1}</span>${esc(s)}</div>`).join('')}</div><p class="small">${esc(m.seq_note)}. Sales-channel fit score: <b>${D.scores[k][3]} / 5</b></p>`;};
+  t.querySelectorAll('tbody tr').forEach(tr=>tr.addEventListener('click',()=>show(tr.dataset.k)));show('mr');}});
+
+// 9 Success drivers
+S.push({t:'Success drivers', h:`<p class="kicker">Success drivers</p>
+ <h1 class="lead">Two traits and two warning signs appear in all five brands; MaryRuth's matches all 13 patterns and Vida Glow is the most frequent exception.</h1>
+ ${tabs('sdTabs',[['bars','Brands per pattern'],['matrix','Pattern-by-brand matrix']],null,'bars')}
+ <div class="two wide"><div id="sdView"></div><div class="panel" id="sdDetail"><span class="small">Click a pattern to see what it means, who fits and the exceptions.</span></div></div>
+ <p class="source">${esc(D.source_line)}. Count = brands the report lists as supporting each pattern.</p>`,
+ init(el){const v=el.querySelector('#sdView'),det=el.querySelector('#sdDetail');
+  const detail=p=>{const sup=BRANDS.filter(k=>p.cells[k]==='S').map(bn).join(', ');det.innerHTML=`<h3>${p.id}. ${esc(p.name)}</h3><p>${tag(p.conf)}</p><p style="font-size:.86em">${esc(p.desc)}</p><div class="kv"><b>${p.group==='Warning'?'Brands affected':'Supporting'} (${p.count})</b><span>${esc(sup)}</span></div><div class="kv"><b>Exceptions and caveats</b><span style="font-size:.86em">${esc(p.exceptions)}</span></div>`;};
+  const wire=()=>{v.querySelectorAll('[data-p]').forEach(n=>{const f=()=>detail(D.patterns.find(p=>p.id===n.dataset.p));n.addEventListener('click',f);n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f();}});});bindTips(v);};
+  const bars=()=>{const W=760,rowH=30,L=360,R=40,H=D.patterns.length*rowH+56,x=c=>L+(W-L-R)*c/5;let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Number of brands supporting each pattern">`;
+   for(let t=0;t<=5;t++)g+=`<line x1="${x(t)}" x2="${x(t)}" y1="0" y2="${H-48}" stroke="#eeede9"/><text x="${x(t)}" y="${H-30}" font-size="13" fill="#52514e" text-anchor="middle">${t}</text>`;
+   g+=`<text x="${(L+W-R)/2}" y="${H-8}" font-size="13" fill="#52514e" text-anchor="middle">Brands supporting the pattern (of 5)</text>`;
+   D.patterns.forEach((p,i)=>{const y=i*rowH+4,c=p.group==='Warning'?'#eb6834':'#2a78d6';
+    g+=`<g data-p="${p.id}" tabindex="0" role="button" style="cursor:pointer" data-tip="<b>${p.id}</b> ${esc(p.name)}<br>${p.count} of 5 brands &middot; ${esc(p.conf)}"><rect x="0" y="${y-3}" width="${W}" height="${rowH}" fill="transparent"/>
+     <text x="${L-10}" y="${y+18}" font-size="15" fill="#1f2a44" text-anchor="end">${p.id}  ${esc(p.name)}</text><rect x="${L}" y="${y+2}" width="${x(p.count)-L}" height="${rowH-10}" rx="4" fill="${c}"/><text x="${x(p.count)+6}" y="${y+18}" font-size="15" fill="#52514e">${p.count}</text></g>`;});
+   v.innerHTML=`<div class="legend"><span><span class="swatch" style="background:#2a78d6"></span>Shared success trait</span><span><span class="swatch" style="background:#eb6834"></span>Warning sign</span></div><div class="chart">${g}</svg></div>`;wire();};
+  const matrix=()=>{const m={S:['#2a78d6','#fff','Yes'],X:['#f3c4ad','#1f2a44','No'],U:['#efeeea','#52514e','?']};
+   v.innerHTML=`<table class="hm"><thead><tr><th></th>${BRANDS.map(k=>`<th>${bn(k)}</th>`).join('')}</tr></thead><tbody>${D.patterns.map(p=>`<tr data-p="${p.id}" tabindex="0" style="cursor:pointer"><th class="rowh" style="font-weight:600;font-size:.9em">${p.id} ${esc(p.name)}</th>${BRANDS.map(k=>{const [bg,fg,l]=m[p.cells[k]];return `<td style="background:${bg};color:${fg}" data-tip="<b>${esc(bn(k))}</b> &middot; ${p.id}: ${l==='?'?'not found or unconfirmed':l==='No'?'named exception':'supports'}">${l}</td>`}).join('')}</tr>`).join('')}</tbody></table>
+   <div class="legend"><span><span class="swatch" style="background:#2a78d6"></span>Yes: supports</span><span><span class="swatch" style="background:#f3c4ad"></span>No: named exception</span><span><span class="swatch" style="background:#efeeea;border:1px solid #ccc"></span>?: not found or unconfirmed</span></div>`;wire();};
+  bars();wireTabs('sdTabs',k=>k==='bars'?bars():matrix());}});
+
+// 10 Success models
+S.push({t:'Success models', h:`<p class="kicker">Success models</p>
+ <h1 class="lead">Four models explain the five successes, but only the marketplace-and-creator mass engine rests on more than one brand.</h1>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8em">${D.models.map((m,i)=>`<div class="card"><h3>${i+1}. ${esc(m.name)}</h3><p>${tag(m.conf)}</p><p>${esc(m.how)}</p><p class="small" style="margin-top:.5em"><b>Brands:</b> ${m.keys.map(k=>`<span class="swatch" style="background:${BHEX[k]}"></span>`).join('')}${esc(m.brands)}</p></div>`).join('')}</div>
+ <h3 style="color:var(--ink);margin:.8em 0 .4em">Alternative explanations <span class="small" style="font-weight:400">(click to expand)</span></h3>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.5em">${D.alternatives.map(([t,b])=>`<button class="exp" aria-expanded="false" style="border-left-color:#8a8984;margin:0"><span class="t">${esc(t)}</span><span class="hint">+</span><div class="d">${esc(b)}</div></button>`).join('')}</div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){el.querySelectorAll('.exp').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true')));}});
+
+// 11 Warning signs
+S.push({t:'Warning signs', h:`<p class="kicker">Warning signs</p>
+ <h1 class="lead">Every brand drifted into trend SKUs and claims that run ahead of its evidence; SmartyPants already faces two class actions.</h1>
+ <p class="sub">Click a warning sign for the evidence and what followed.</p>
+ <div>${D.patterns.filter(p=>p.group==='Warning').map(p=>`<button class="exp warn" aria-expanded="false"><span class="t">${p.id}. ${esc(p.name)} &nbsp;<span class="small" style="font-weight:600">${p.count} of 5 brands</span> ${tag(p.conf)}</span><span class="hint">+</span>
+  <div class="d"><p style="margin:.2em 0">${esc(p.desc)}</p><p style="margin:.4em 0 0"><b>What followed / exceptions:</b> ${esc(p.exceptions)}</p></div></button>`).join('')}</div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){el.querySelectorAll('.exp').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true')));}});
+
+// 12 Implications
+S.push({t:'Implications', h:`<p class="kicker">Implications for a new launch</p>
+ <h1 class="lead">Pick a self-explaining format, prove demand online, choose one retail destination, and write claims for the strictest market from day one.</h1>
+ <ol class="impl">${D.implications.map(([t,b])=>`<li><b>${esc(t)}</b> ${esc(b)}</li>`).join('')}</ol>
+ <p class="source">${esc(D.source_line)}</p>`});
+
+// 13 Open questions
+S.push({t:'Open questions', h:`<p class="kicker">Open questions and gaps</p>
+ <h1 class="lead">Full-page evidence, channel revenue mix and failed comparison brands would most change confidence in these patterns.</h1>
+ ${tabs('gqTabs',[['ev','Evidence quality'],['br','Brands to add'],['sp','Spate searches']],null,'ev')}
+ <div id="gqView"></div>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:1em">${D.caveats.map(([t,b])=>`<div class="card neutral"><h3>${esc(t)} ${tag('Caveat')}</h3><p>${esc(b)}</p></div>`).join('')}</div>
+ <p class="source">${esc(D.source_line)}</p>`,
+ init(el){const v=el.querySelector('#gqView');const views={
+  ev:()=>`<ul>${D.gaps_evidence.map(g=>`<li style="margin-bottom:.4em;font-size:.88em">${esc(g)}</li>`).join('')}</ul>`,
+  br:()=>`<p class="small"><i>${esc(D.gaps_brands_note)}</i></p><ul>${D.gaps_brands.map(([n,t])=>`<li style="margin-bottom:.35em;font-size:.88em"><b>${esc(n)}:</b> ${esc(t)}</li>`).join('')}</ul>`,
+  sp:()=>`<table class="simple"><thead><tr><th>Spate search</th><th>Markets</th><th>What it would test</th></tr></thead><tbody>${D.spate.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>`};
+  v.innerHTML=views.ev();wireTabs('gqTabs',k=>v.innerHTML=views[k]());}});
+
+// 14 Sources
+S.push({t:'Sources', h:`<p class="kicker">Sources</p>
+ <h1 class="lead">Every finding comes from the 2026-10-06 pattern report; the five brand reports supplied only scores and milestone dates for charts.</h1>
+ <table class="simple"><thead><tr><th>File</th><th>What it supplied</th></tr></thead><tbody>${D.sources.map(([p,d])=>`<tr><td style="white-space:nowrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em">${esc(p)}</td><td>${esc(d)}</td></tr>`).join('')}</tbody></table>
+ <p class="small" style="margin-top:1em">${esc(D.sources_note)}</p>
+ <p class="small">Confidence tags: ${tag('Medium')} ${tag('Early signal')} ${tag('Caveat')} for patterns; ${evtag('CONFIRMED')} ${evtag('REPORTED')} ${evtag('INFERRED')} ${evtag('USER-SUPPLIED')} for dated facts (no user-supplied facts in this set).</p>`});
+
+/* ---------------- deck engine ---------------- */
+const deck=document.getElementById('deck'),menu=document.getElementById('menu'),dots=document.getElementById('dots');
+S.forEach((s,i)=>{const sec=document.createElement('section');sec.className='slide';sec.id='s'+(i+1);sec.setAttribute('aria-label',`Slide ${i+1}: ${s.t}`);
+ sec.innerHTML=`<div class="inner">${s.h}</div>`;deck.appendChild(sec);if(s.init)s.init(sec);
+ const mb=document.createElement('button');mb.innerHTML=`<span class="mn">${i+1}</span>${s.t}`;mb.onclick=()=>{go(i);toggleMenu(false);};menu.appendChild(mb);
+ const d=document.createElement('button');d.title=`${i+1}. ${s.t}`;d.setAttribute('aria-label',`Go to slide ${i+1}: ${s.t}`);d.onclick=()=>go(i);dots.appendChild(d);});
+let cur=0;
+function go(i){i=Math.max(0,Math.min(S.length-1,i));const slides=deck.children;slides[cur].classList.remove('active');cur=i;slides[cur].classList.add('active');slides[cur].scrollTop=0;
+ document.getElementById('count').textContent=`${cur+1} / ${S.length}`;document.getElementById('stitle').textContent=S[cur].t;
+ document.getElementById('progress').style.width=((cur+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=cur===0;document.getElementById('next').disabled=cur===S.length-1;
+ [...menu.children].forEach((b,j)=>b.classList.toggle('cur',j===cur));[...dots.children].forEach((b,j)=>b.classList.toggle('cur',j===cur));
+ hideTip();try{history.replaceState(null,'','#'+(cur+1));}catch(e){}}
+function toggleMenu(open){open=open===undefined?!menu.classList.contains('open'):open;menu.classList.toggle('open',open);document.getElementById('menuBtn').setAttribute('aria-expanded',open);}
+document.getElementById('prev').onclick=()=>go(cur-1);document.getElementById('next').onclick=()=>go(cur+1);
+document.getElementById('menuBtn').onclick=e=>{e.stopPropagation();toggleMenu();};
+document.addEventListener('click',e=>{if(!menu.contains(e.target))toggleMenu(false);});
+document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;
+ if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(cur+1);}
+ else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1);}
+ else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);
+ else if(e.key==='m'||e.key==='M')toggleMenu();else if(e.key==='Escape')toggleMenu(false);});
+let tx=null;deck.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+deck.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)go(cur+(dx<0?1:-1));tx=null;});
+const h=parseInt((location.hash||'').slice(1),10);go(isNaN(h)?0:h-1);
+</script>
+</body>
+</html>
