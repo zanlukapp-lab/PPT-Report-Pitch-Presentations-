@@ -1,5 +1,15 @@
 # Project notes
 
+## Main agent
+
+Sessions in this repo run as `tosla-strategist`
+(`.claude/agents/tosla-strategist.md`, set in `.claude/settings.json`).
+It is the one agent the user talks to: it directs the specialist agents
+below and learns from every conversation (playbook in
+`learnings/strategist.md`, index in `memory/index.md`, changes in
+`learnings/changelog.md`). To run without it, start Claude Code with
+`--agent` set to another agent, or remove the setting.
+
 ## Brand subagents and memory
 
 This repo has six subagents in `.claude/agents/`: `brand-analyst`,
