@@ -18,5 +18,15 @@ about a brand, the category, a comparison or how they want reports done:
 3. Files the user uploads in chat for a brand go to `inputs/<brand-name>/`
    (or `inputs/category/`), with a memory bullet noting what was added.
 
-This environment is temporary, so commit and push changes to `memory/`,
+This environment is temporary, so commit and push changes to `memory/`, `learnings/`, `deliverables/`,
 `inputs/` and `reports/` at the end of every turn that changes them.
+
+## Learnings and deliverables
+
+- `learnings/research.md`, `learnings/patterns.md` and `learnings/design.md`
+  hold lessons for brand-analyst, brand-pattern-finder and report-designer.
+  When the user says "remember ..." about how the work should be done, add
+  it to the matching file (or pass it to the agent being run).
+- report-designer writes Word and HTML deliverables to
+  `deliverables/<report-name>/`. Brand style files go in `inputs/style/`.
+- Commit and push `learnings/` and `deliverables/` changes too.

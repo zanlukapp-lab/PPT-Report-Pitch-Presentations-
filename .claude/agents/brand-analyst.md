@@ -114,5 +114,19 @@ Save to `reports/brands/<brand-name>.md` with this structure:
 - Sources (title, URL, date accessed)
 
 Keep the same headings and scorecard criteria for every brand so reports
-can be compared later. Reply to the user with the file path and the
-summary only.
+can be compared later.
+
+## Learning
+
+Before you start, read `learnings/research.md` if it exists and apply everything
+in it. After you finish, append one dated line for each thing worth
+remembering: a source that proved reliable or unreliable, a search approach
+that worked, a mistake you corrected, a preference or correction from the
+user. Keep entries short and specific. If the file passes 60 lines, merge
+duplicates and remove outdated entries. When the user says "remember ...",
+add it to this file immediately.
+
+`learnings/` holds lessons about how to do the work. Facts about a brand
+that the user supplies go to `memory/` instead (see Memory above).
+
+Reply to the user with the file path and the summary only.

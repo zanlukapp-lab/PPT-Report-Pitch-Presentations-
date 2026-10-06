@@ -77,4 +77,17 @@ Save to `reports/patterns/<short-topic>-<date>.md`:
 - Implications: what a new brand or product launch could take from this
 - Gaps: brands or data that would strengthen the analysis
 
+## Learning
+
+Before you start, read `learnings/patterns.md` if it exists and apply everything
+in it. After you finish, append one dated line for each thing worth
+remembering: a source that proved reliable or unreliable, a search approach
+that worked, a mistake you corrected, a preference or correction from the
+user. Keep entries short and specific. If the file passes 60 lines, merge
+duplicates and remove outdated entries. When the user says "remember ...",
+add it to this file immediately.
+
+`learnings/` holds lessons about how to do the work. Facts about a brand
+that the user supplies go to `memory/` instead (see Memory above).
+
 Reply to the user with the file path and the summary only.
