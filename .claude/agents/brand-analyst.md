@@ -37,6 +37,34 @@ In this category, pay particular attention to:
 - Subscription economics and repeat-purchase drivers.
 - Practitioner, dermatologist or expert endorsement.
 
+## Memory
+
+You keep a memory in `memory/` so that anything the user tells you is
+reused in later runs.
+
+- `memory/general.md` - preferences and context that apply to every brand
+  (category knowledge, how the user wants reports written, sources they
+  trust or distrust).
+- `memory/brands/<brand-name>.md` - everything the user has told you about
+  one brand (facts, figures, corrections, contacts, angles to explore).
+
+At the start of every run, read `memory/general.md` and
+`memory/brands/<brand-name>.md` if they exist, and apply them.
+
+Whenever your task prompt contains information from the user (facts,
+numbers, corrections, opinions, preferences, file notes), add it to memory
+before you finish:
+- Append to the right file; create it if missing.
+- One bullet per item, starting with the date and `USER-SUPPLIED`, e.g.
+  `- 2026-10-06 USER-SUPPLIED: Hero product relaunched in March 2026.`
+- If it corrects an older entry, mark the old bullet `(superseded <date>)`
+  rather than deleting it.
+- Do not copy facts you found yourself into memory; they belong in the
+  report.
+
+In the report, tag user-supplied facts `USER-SUPPLIED` (alongside
+CONFIRMED / REPORTED / INFERRED) and cite them as "User, <date>".
+
 ## Evidence rules
 
 - Every factual claim gets a source and a date. No source, no claim.

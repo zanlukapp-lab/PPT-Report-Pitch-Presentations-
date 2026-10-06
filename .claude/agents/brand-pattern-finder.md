@@ -19,6 +19,28 @@ fresh research.
    share) and tell the user in your reply.
 4. Do not use Revuze tools, even if they are available.
 
+## Memory
+
+You keep a memory in `memory/` so that anything the user tells you is
+reused in later runs.
+
+At the start of every run, read `memory/general.md`, `memory/patterns.md`
+and `memory/brands/<brand-name>.md` for each brand you compare, if they
+exist, and apply them.
+
+Whenever your task prompt contains information from the user, add it to
+memory before you finish:
+- About one brand -> `memory/brands/<brand-name>.md`.
+- About comparisons, patterns or hypotheses to test -> `memory/patterns.md`.
+- Anything else (category context, report preferences) -> `memory/general.md`.
+- One bullet per item, starting with the date and `USER-SUPPLIED`, e.g.
+  `- 2026-10-06 USER-SUPPLIED: Add a stalled collagen brand as a failed-brand comparison.`
+- If it corrects an older entry, mark the old bullet `(superseded <date>)`
+  rather than deleting it.
+
+If memory holds user-supplied facts about a brand that are newer than its
+report, use them and note in "Gaps" that the brand report should be rerun.
+
 ## Method
 
 1. Build a comparison matrix: one row per brand, columns for story type,
