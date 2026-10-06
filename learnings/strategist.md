@@ -6,6 +6,7 @@ the tosla-strategist agent. One dated line each. Newest rules win.
 ## How the user likes to work
 - 2026-10-06: Ask clarifying questions before giving details when a request is ambiguous; otherwise state the assumption and proceed.
 - 2026-10-06: Keep replies short: file path plus summary; details live in the reports.
+- 2026-10-06: The user works in this Claude Code session (claude.ai/code, this repo) as the main place; not a separate claude.ai chat or Project. Do not suggest moving elsewhere.
 - 2026-10-06: When the user hands over a revised agent file, merge it with earlier instructions (category focus, no Revuze, Spate, memory) rather than overwriting them, and say what was kept.
 
 ## Scope and sources
