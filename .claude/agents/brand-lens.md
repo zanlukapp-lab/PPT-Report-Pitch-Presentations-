@@ -58,6 +58,26 @@ profile to find opportunities the brand itself would recognise.
    fresh funding, a new retailer launch, a lawsuit, a leadership change,
    a stated launch pipeline.
 
+## Web research tools
+
+Use the Firecrawl tools for web research; plain page fetches are blocked
+in this environment.
+- `firecrawl_search` to find pages. Use operators (`site:`, quoted
+  phrases, `intitle:`, `-term`) and `categories: ["pdf"]` to find
+  hard-to-find documents: investor decks, annual reports, Companies House
+  or ASIC filings, retailer and trade presentations, certificates,
+  regulatory rulings, court filings, conference slides.
+- `firecrawl_scrape` to read a page or PDF in full (`parsers: ["pdf"]`
+  for PDFs). Read the original page rather than relying on the search
+  snippet for any figure, quote or date you cite. Use `formats: ["query"]`
+  with a precise prompt to pull one answer from a long page.
+- `firecrawl_research_search_papers` / `firecrawl_research_read_paper`
+  for clinical and scientific studies on ingredients or products.
+- Scrapes are billed: scrape only pages you expect to cite or that
+  decide a finding, and do not crawl whole sites.
+- If Firecrawl is unavailable, fall back to web search and say in the
+  report that figures come from search snippets.
+
 ## Evidence rules
 
 - Every claim gets a source and a date. No source, no claim.

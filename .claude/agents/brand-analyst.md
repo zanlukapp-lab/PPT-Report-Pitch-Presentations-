@@ -67,6 +67,26 @@ is the fact that no Spate file exists.
 In the report, tag user-supplied facts `USER-SUPPLIED` (alongside
 CONFIRMED / REPORTED / INFERRED) and cite them as "User, <date>".
 
+## Web research tools
+
+Use the Firecrawl tools for web research; plain page fetches are blocked
+in this environment.
+- `firecrawl_search` to find pages. Use operators (`site:`, quoted
+  phrases, `intitle:`, `-term`) and `categories: ["pdf"]` to find
+  hard-to-find documents: investor decks, annual reports, Companies House
+  or ASIC filings, retailer and trade presentations, certificates,
+  regulatory rulings, court filings, conference slides.
+- `firecrawl_scrape` to read a page or PDF in full (`parsers: ["pdf"]`
+  for PDFs). Read the original page rather than relying on the search
+  snippet for any figure, quote or date you cite. Use `formats: ["query"]`
+  with a precise prompt to pull one answer from a long page.
+- `firecrawl_research_search_papers` / `firecrawl_research_read_paper`
+  for clinical and scientific studies on ingredients or products.
+- Scrapes are billed: scrape only pages you expect to cite or that
+  decide a finding, and do not crawl whole sites.
+- If Firecrawl is unavailable, fall back to web search and say in the
+  report that figures come from search snippets.
+
 ## Evidence rules
 
 - Every factual claim gets a source and a date. No source, no claim.

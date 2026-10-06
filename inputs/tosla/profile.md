@@ -101,10 +101,71 @@ The future of wellness belongs to products that combine science, user
 experience and commercial scalability. Mission: transform promising
 ingredients into products people trust, enjoy and use consistently.
 
+## From TOSLA's own websites (Firecrawl scrape, 2026-10-06)
+
+Tag: CONFIRMED (TOSLA's own statements). Sources: https://toslagroup.com/
+(modified 2026-09-30) and https://toslanutraceuticals.com/ (modified
+2026-06-26).
+
+- Group tagline: "Science. Retention. Performance." "More than a
+  manufacturer. A platform for partnerships." "We don't just make
+  products, we create, co-own, and empower portfolios of wellness
+  success." "TOSLA is the engine behind tomorrow's most trusted supplement
+  brands."
+- Two businesses: TOSLA Nutricosmetics (toslanutricosmetics.com, liquid
+  supplements for leading beauty brands) and TOSLA Nutraceuticals
+  (toslanutraceuticals.com, liquid nutraceutical innovation and
+  manufacturing).
+- Three partnership models:
+  1. Clinical-grade CDMO services - liquid format innovation, flexible
+     on-site development, regulatory support, high-retention formats.
+  2. Co-creation and IP partnerships - co-creation and risk sharing, joint
+     go-to-market models, local expertise and global reach.
+  3. Innovation and technology incubator - proprietary ingredient
+     complexes, flavour technologies and clinical data packages to license
+     or white-label to top-tier brands.
+  Also: long-term ingredient partnerships, targeted M&A initiatives and
+  collaborative new product development.
+- Why partner (TOSLA's words): proprietary formulation and sensory
+  engineering verified by studies (stable, bioavailable, great-tasting
+  actives); habit-forming products - "Sip. Stay. Scale. 60% retention, 5x
+  lifetime value"; regulatory and IP muscle - clinically proven claims,
+  audit-ready files, IP and trade-secret protection; scalable from pilot to
+  mass production with tight QC, fast lead times and competitive unit
+  economics.
+- Nutraceutical need-states offered: men's wellness (energy, hormones,
+  performance, healthy ageing); women's wellness (hormones, mood, skin,
+  energy, cycle to pregnancy to ageing); metabolism management (blood
+  sugar, appetite, energy use, body composition); longevity support
+  (inflammation, oxidative stress, mitochondria); cognitive health (focus,
+  memory, clarity).
+- Turnkey: end-to-end development, manufacturing and packaging.
+- Capacity: "two state-of-the-art facilities and a daily capacity of over
+  100,000 bottles" (nutraceuticals site; trade press separately reports 45
+  million bottles a year after TOSLA 3).
+- VELIOUS(TM) 3.0: "award-winning patented" flavour technology that
+  conceals unwanted tastes of actives and tunes flavour to target groups.
+- "Always liquid": ready-to-drink, zero preparation, replaces pills; "60%
+  of customers returning".
+- Science: invests in at least one clinical study per year; validates
+  best-performing products by clinical or analytical testing. Overview:
+  https://toslanutricosmetics.com/the-clinical-studies/
+- Certifications: FSSC 22000; cGMP (2026 certificate); B Corp; on-site FDA
+  inspection in summer 2024; The Good Pill certification; TOSLA CPAC (own
+  quality standard for collagen formulations).
+- Recent: TOSLA x Geltor vegan signaling collagen liquid
+  (https://toslagroup.com/collaboration/geltor/).
+- Press and awards listed on the site include Vogue (sponsored, "Luxury's
+  latest ritual: liquid supplements"), WWD, BeautyMatter (VELIOUS),
+  Cosmetics & Toiletries Allé awards 2022, BeautyMatter NEXT 2023
+  nomination, Biohackers' Choice awards, Lumina365 sun-care innovation of
+  the year.
+- Key-number counters (years, bottles sold, daily capacity) load by script
+  and could not be read.
+
 ## Public facts (web search, 2026-10-06)
 
-The user pointed to https://toslagroup.com/ as the full source. This
-environment's network policy blocks that site, so the facts below come
+Gathered before Firecrawl was connected; the facts below come
 from search-result extracts of trade press and TOSLA's older site
 (toslanutricosmetics.com). Tag: REPORTED unless noted. Check against
 toslagroup.com before quoting externally.
@@ -151,7 +212,6 @@ toslagroup.com before quoting externally.
 
 ## Not found publicly
 
-Named client brands, minimum order quantities, lead times, price
-positioning, regulatory certifications beyond B Corp (e.g. GMP, ISO,
-FSSC), formats beyond liquid bottles/shots. Ask the user before an
+Named client brands, minimum order quantities, exact lead times, price
+positioning, formats beyond liquid bottles/shots. Ask the user before an
 approach brief relies on any of these.
