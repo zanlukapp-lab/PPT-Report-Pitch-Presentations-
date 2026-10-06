@@ -28,8 +28,11 @@ At the start of every run, read `memory/general.md`, `memory/patterns.md`
 and `memory/brands/<brand-name>.md` for each brand you compare, if they
 exist, and apply them.
 
-Whenever your task prompt contains information from the user, add it to
-memory before you finish:
+Your task prompt may contain a block labelled "User-supplied information
+(save to memory)". Save everything in that block to memory before you
+finish, and save nothing else: brand descriptions, scope, slugs and other
+run instructions from the main session are not user-supplied, and neither
+is the fact that no Spate file exists.
 - About one brand -> `memory/brands/<brand-name>.md`.
 - About comparisons, patterns or hypotheses to test -> `memory/patterns.md`.
 - Anything else (category context, report preferences) -> `memory/general.md`.

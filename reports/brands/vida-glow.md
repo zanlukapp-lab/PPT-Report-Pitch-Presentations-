@@ -238,4 +238,3 @@ All accessed 2026-10-06. Several pages were read through search-result extracts 
 - S43. Growjo, "Vida Glow: revenue, competitors", https://growjo.com/company/VIDA_GLOW
 - S44. Crunchbase, https://www.crunchbase.com/organization/vida-glow ; CB Insights, https://www.cbinsights.com/company/vida-glow
 - S45. Fashion Bomb Daily, "Vida Glow Collagen Review: Is It Worth It?" (4 Aug 2026), https://fashionbombdaily.com/2026/08/04/vida-glow-collagen-review-is-it-worth-it/
-- User, 2026-10-06 (USER-SUPPLIED): brand described as Australian-founded marine collagen / nutricosmetics brand also sold in UK and US; scope = US, EU, UK plus Australia.

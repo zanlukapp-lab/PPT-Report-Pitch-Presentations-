@@ -51,9 +51,11 @@ reused in later runs.
 At the start of every run, read `memory/general.md` and
 `memory/brands/<brand-name>.md` if they exist, and apply them.
 
-Whenever your task prompt contains information from the user (facts,
-numbers, corrections, opinions, preferences, file notes), add it to memory
-before you finish:
+Your task prompt may contain a block labelled "User-supplied information
+(save to memory)". Save everything in that block to memory before you
+finish, and save nothing else: brand descriptions, scope, slugs and other
+run instructions from the main session are not user-supplied, and neither
+is the fact that no Spate file exists.
 - Append to the right file; create it if missing.
 - One bullet per item, starting with the date and `USER-SUPPLIED`, e.g.
   `- 2026-10-06 USER-SUPPLIED: Hero product relaunched in March 2026.`

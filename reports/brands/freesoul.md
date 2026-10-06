@@ -4,7 +4,7 @@
 **Inputs:** No files in `inputs/freesoul/`; no Spate export. Memory: `memory/brands/freesoul.md` (user-supplied scope only).
 **Method note:** The brand site (freesoul.com) and most press pages were blocked by this environment's network proxy, so evidence comes from search-result extracts of the cited pages, not full-page reads. Figures should be checked against the originals before external use.
 
-**Brand identification (resolved):** "Freesoul" is ambiguous. FREESOUL is also an Italian denim/fashion label (FFI Global srl) that entered India via Myntra in April 2022 (Fashion Network, 26 Apr 2022). This report covers **Free Soul**, the UK women's nutrition brand at freesoul.com, founded by Rohini and Arjun Sofat, which matches the user's description (USER-SUPPLIED, User, 2026-10-06). A FlexOffers affiliate profile attributes Free Soul to "Stefanie Williams"; no other source supports this and it is treated as an error.
+**Brand identification (resolved):** "Freesoul" is ambiguous. FREESOUL is also an Italian denim/fashion label (FFI Global srl) that entered India via Myntra in April 2022 (Fashion Network, 26 Apr 2022). This report covers **Free Soul**, the UK women's nutrition brand at freesoul.com, founded by Rohini and Arjun Sofat, which matches the brief for this run (a UK women's wellness brand). A FlexOffers affiliate profile attributes Free Soul to "Stefanie Williams"; no other source supports this and it is treated as an error.
 
 ---
 
@@ -216,4 +216,3 @@ All accessed 2026-10-06 (via search extracts; direct fetches blocked).
 | Free Soul ad libraries (adscan.ai, Motion, adlibrary) | https://adscan.ai/ad/75713 ; https://motionapp.com/library/free-soul ; https://adlibrary.com/brands/free-soul | Live (ad dated 10 Jan 2026) |
 | Free Soul company profile (CB Insights) | https://www.cbinsights.com/company/free-soul | Live |
 | Freesoul enters India market with Myntra (Fashion Network) - disambiguation | https://in.fashionnetwork.com/news/Freesoul-enters-India-market-with-Myntra,1400203.html | 26 Apr 2022 |
-| Memory: user scope note | memory/brands/freesoul.md | User, 2026-10-06 (USER-SUPPLIED) |
