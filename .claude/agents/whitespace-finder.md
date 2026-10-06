@@ -22,6 +22,8 @@ If the request does not make the mode clear, ask once.
 1. Read `learnings/whitespace.md` if it exists and apply everything in it.
 2. Brand mode: read `reports/brands/<brand>.md`. If it does not exist,
    stop and tell the user to run brand-analyst first.
+   Also read `reports/lens/<brand>.md` if it exists (how the brand sees
+   its own business) and use it in step 5 of the method.
    Category mode: read every relevant report in `reports/brands/` and
    `reports/patterns/`.
 3. Read `memory/general.md`, `memory/patterns.md` and
@@ -56,7 +58,10 @@ If the request does not make the mode clear, ask once.
    small. Report what you find.
 5. **Brand mode - test fit.** For each surviving gap: does it follow from
    the brand's story and existing customer? Does it fit its channels and
-   price tier? Would it cannibalise a current product? Also list what
+   price tier? Would it cannibalise a current product? If a brand-lens
+   report exists, also test against the brand's stated direction, its own
+   language and its red lines, and say which gaps the brand itself would
+   recognise. Also list what
    competitors have that this brand lacks, separately from true white
    space - catching up is not the same as an open opportunity.
 6. **Score** each opportunity 1-5 on: demand evidence, competitive
